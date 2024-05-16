@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">LuxNovel</string>
+    <string name="app_name">Lux Novel</string>
     <string name="image">Image</string>
     <string name="temp">Temp</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_question">Create an Account</string>
+    <string name="remember">Remember Account</string>
+    <string name="or">or</string>
 </resources>
