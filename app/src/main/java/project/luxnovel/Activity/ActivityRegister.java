@@ -25,9 +25,9 @@ public class ActivityRegister extends AppCompatActivity
         setContentView(R.layout.activity_register);
 
         addControls();
-        HelperShared.removeAnnotation(vText_aRegister_UsernameAnnotation);
-        HelperShared.removeAnnotation(vText_aRegister_PasswordAnnotation);
-        HelperShared.removeAnnotation(vText_aRegister_EmailAnnotation);
+        vText_aRegister_UsernameAnnotation.setText("");
+        vText_aRegister_PasswordAnnotation.setText("");
+        vText_aRegister_EmailAnnotation.setText("");
 
         addEvents();
         HelperShared.toggleVisibility(uText_aRegister_Password);

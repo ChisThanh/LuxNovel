@@ -1,9 +1,6 @@
 package project.luxnovel.Helper;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -15,11 +12,6 @@ import project.luxnovel.R;
 
 public class HelperShared
 {
-    public static void removeAnnotation(TextView annotation_view)
-    {
-        annotation_view.setText("");
-    }
-
     @SuppressLint("ClickableViewAccessibility")
     public static void toggleVisibility(EditText visibility_user)
     {

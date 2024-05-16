@@ -27,8 +27,8 @@ public class ActivityLogin extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
         addControls();
-        HelperShared.removeAnnotation(vText_aLogin_UsernameAnnotation);
-        HelperShared.removeAnnotation(vText_aLogin_PasswordAnnotation);
+        vText_aLogin_UsernameAnnotation.setText("");
+        vText_aLogin_PasswordAnnotation.setText("");
 
         addEvents();
         HelperShared.toggleVisibility(uText_aLogin_Password);

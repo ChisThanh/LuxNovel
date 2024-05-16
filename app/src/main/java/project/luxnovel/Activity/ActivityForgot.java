@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import project.luxnovel.Helper.HelperShared;
 import project.luxnovel.R;
 
 public class ActivityForgot extends AppCompatActivity
@@ -25,8 +24,8 @@ public class ActivityForgot extends AppCompatActivity
         setContentView(R.layout.activity_forgot);
 
         addControls();
-        HelperShared.removeAnnotation(vText_aForgot_UsernameAnnotation);
-        HelperShared.removeAnnotation(vText_aForgot_EmailAnnotation);
+        vText_aForgot_UsernameAnnotation.setText("");
+        vText_aForgot_EmailAnnotation.setText("");
 
         addEvents();
     }
