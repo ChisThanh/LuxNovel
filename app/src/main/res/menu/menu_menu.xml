@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="" >
+        <menu>
+        </menu>
+    </item>
+
+    <item android:title="@string/navigate" >
+        <menu >
+            <item
+                android:id="@+id/iMenu_mMenu_Home"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/home"
+                android:title="@string/home"
+            />
+            <item
+                android:id="@+id/iMenu_mMenu_Library"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/library"
+                android:title="@string/library"
+            />
+            <item
+                android:id="@+id/iMenu_mMenu_Read"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/read"
+                android:title="@string/read"
+            />
+            <item
+                android:id="@+id/iMenu_mMenu_Write"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/write"
+                android:title="@string/write"
+            />
+        </menu>
+    </item>
+
+    <item android:title="@string/personalize" >
+        <menu >
+            <item
+                android:id="@+id/iMenu_mMenu_Account"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/account"
+                android:title="@string/account"
+            />
+            <item
+                android:id="@+id/iMenu_mMenu_Settings"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/settings"
+                android:title="@string/settings"
+            />
+            <item
+                android:id="@+id/iMenu_mMenu_Logout"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/logout"
+                android:title="@string/logout"
+            />
+        </menu>
+    </item>
+</menu>
