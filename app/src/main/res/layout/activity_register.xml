@@ -1,6 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.ActivityRegister"
+>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="@string/app_name"
+    />
+
+    <EditText
+        android:id="@+id/uText_aRegister_Username"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/gray"
+        android:drawableStart="@drawable/username"
+
+        android:textSize="20sp"
+        android:backgroundTint="@color/gray"
+
+        android:autofillHints=""
+        android:hint="@string/username"
+        android:ems="10"
+        android:inputType="text"
+
+        tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck"
+    />
+
+    <EditText
+        android:id="@+id/uText_aRegister_Password"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/gray"
+        android:drawableStart="@drawable/password"
+
+        android:textSize="20sp"
+        android:backgroundTint="@color/gray"
+
+        android:autofillHints=""
+        android:hint="@string/password"
+        android:ems="10"
+        android:inputType="textPassword"
+
+        tools:ignore="LabelFor,VisualLintTextFieldSize, TextContrastCheck"
+    />
+
+
+    <EditText
+        android:id="@+id/uText_aRegister_Email"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/gray"
+        android:drawableStart="@drawable/email"
+
+        android:textSize="20sp"
+        android:backgroundTint="@color/gray"
+
+        android:autofillHints=""
+        android:hint="@string/email"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+
+        tools:ignore="LabelFor,VisualLintTextFieldSize, TextContrastCheck"
+    />
+
+    <Button
+        android:id="@+id/uButton_aRegister_Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:text="@string/register"
+        tools:ignore="VisualLintButtonSize"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="@string/or"
+    />
+
+    <TextView
+        android:id="@+id/vText_aRegister_Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:textColor="@color/dark_sky_blue"
+        android:text="@string/login_question"
+    />
+
+</LinearLayout>

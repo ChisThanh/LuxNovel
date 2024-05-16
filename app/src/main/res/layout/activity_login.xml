@@ -32,7 +32,7 @@
         android:drawableTint="@color/gray"
         android:drawableStart="@drawable/username"
 
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:backgroundTint="@color/gray"
 
         android:autofillHints=""
@@ -56,7 +56,7 @@
         android:drawableTint="@color/gray"
         android:drawableStart="@drawable/password"
 
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:backgroundTint="@color/gray"
 
         android:autofillHints=""
@@ -82,7 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/remember"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="VisualLintButtonSize"
+        />
 
         <TextView
             android:id="@+id/vText_aLogin_Forgot"
@@ -101,12 +102,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:text="@string/login"
-        tools:ignore="VisualLintButtonSize" />
+        tools:ignore="VisualLintButtonSize"
+    />
 
     <TextView
         android:layout_width="match_parent"
