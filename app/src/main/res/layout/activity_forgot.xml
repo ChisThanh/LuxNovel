@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.ActivityLogin"
+    tools:context=".Activity.ActivityForgot"
 >
 
     <TextView
@@ -19,7 +19,7 @@
     />
 
     <EditText
-        android:id="@+id/uText_aLogin_Username"
+        android:id="@+id/uText_aForgot_Username"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
     />
 
     <TextView
-        android:id="@+id/vText_aLogin_UsernameAnnotation"
+        android:id="@+id/vText_aForgot_UsernameAnnotation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -57,8 +57,18 @@
         tools:ignore="TextContrastCheck"
     />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="@string/or"
+    />
+
     <EditText
-        android:id="@+id/uText_aLogin_Password"
+        android:id="@+id/uText_aForgot_Email"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,22 +78,21 @@
 
         android:drawablePadding="10dp"
         android:drawableTint="@color/gray"
-        android:drawableStart="@drawable/password"
-        android:drawableEnd="@drawable/visibility"
+        android:drawableStart="@drawable/email"
 
         android:textSize="20sp"
         android:background="@drawable/border"
 
         android:autofillHints=""
-        android:hint="@string/password"
+        android:hint="@string/email"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
 
         tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
     />
 
     <TextView
-        android:id="@+id/vText_aLogin_PasswordAnnotation"
+        android:id="@+id/vText_aForgot_EmailAnnotation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -92,42 +101,12 @@
         android:layout_gravity="end"
         android:textSize="12sp"
         android:textColor="@color/error_red"
-        android:text="@string/password_annotation"
+        android:text="@string/email_annotation"
         tools:ignore="TextContrastCheck"
     />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-    >
-
-        <CheckBox
-            android:id="@+id/uCheck_aLogin_Remember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/remember"
-            tools:ignore="VisualLintButtonSize"
-        />
-
-        <TextView
-            android:id="@+id/vText_aLogin_Forgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="textEnd"
-            android:textColor="@color/hyperlink_blue"
-            android:text="@string/forgot_password"
-        />
-
-    </LinearLayout>
-
     <Button
-        android:id="@+id/uButton_aLogin_Login"
+        android:id="@+id/uButton_aForgot_RecoverPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -135,7 +114,7 @@
         android:layout_marginEnd="30dp"
         android:textSize="25sp"
         android:textColor="@color/black"
-        android:text="@string/login"
+        android:text="@string/recover_password"
         android:background="@drawable/border"
         tools:ignore="VisualLintButtonSize"
     />
@@ -151,7 +130,7 @@
     />
 
     <TextView
-        android:id="@+id/vText_aLogin_Register"
+        android:id="@+id/vText_aForgot_Register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

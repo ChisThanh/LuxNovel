@@ -26,6 +26,7 @@
 
         <activity android:name=".Activity.ActivityLogin"/>
         <activity android:name=".Activity.ActivityRegister"/>
+        <activity android:name=".Activity.ActivityForgot"/>
 
     </application>
 
