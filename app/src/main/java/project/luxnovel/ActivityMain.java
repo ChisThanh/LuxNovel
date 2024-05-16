@@ -4,8 +4,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import project.appreadnovel.R;
-
 public class ActivityMain extends AppCompatActivity
 {
 
