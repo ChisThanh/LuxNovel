@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Lux Novel</string>
+    <string name="image">Image</string>
+    <string name="temp">Temp</string>
+
+    <string name="navigation_open">Open Navigation</string>
+    <string name="navigation_close">Close Navigation</string>
+
+    <string name="navigate">Navigate</string>
+    <string name="personalize">Personalize</string>
+    <string name="account">Account</string>
+    <string name="home">Home</string>
+    <string name="library">Library</string>
+    <string name="read">Read</string>
+    <string name="write">Write</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="username_annotation">Username Annotation</string>
+    <string name="password_annotation">Password Annotation</string>
+    <string name="email_annotation">Email Annotation</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register_question">Create an Account</string>
+    <string name="login_question">Already Have an Account</string>
+    <string name="remember">Remember Account</string>
+    <string name="recover_password">Recover Password</string>
+    <string name="or">or</string>
+</resources>
