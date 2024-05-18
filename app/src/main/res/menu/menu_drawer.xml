@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
 
     <item android:title="" >
         <menu>
@@ -11,25 +13,25 @@
     <item android:title="@string/navigate" >
         <menu >
             <item
-                android:id="@+id/iMenu_mMenu_Home"
+                android:id="@+id/iMenu_mDrawer_Home"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/home"
                 android:title="@string/home"
             />
             <item
-                android:id="@+id/iMenu_mMenu_Library"
+                android:id="@+id/iMenu_mDrawer_Library"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/library"
                 android:title="@string/library"
             />
             <item
-                android:id="@+id/iMenu_mMenu_Read"
+                android:id="@+id/iMenu_mDrawer_Read"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/read"
                 android:title="@string/read"
             />
             <item
-                android:id="@+id/iMenu_mMenu_Write"
+                android:id="@+id/iMenu_mDrawer_Write"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/write"
                 android:title="@string/write"
@@ -40,19 +42,19 @@
     <item android:title="@string/personalize" >
         <menu >
             <item
-                android:id="@+id/iMenu_mMenu_Account"
+                android:id="@+id/iMenu_mDrawer_Account"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/account"
                 android:title="@string/account"
             />
             <item
-                android:id="@+id/iMenu_mMenu_Settings"
+                android:id="@+id/iMenu_mDrawer_Settings"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/settings"
                 android:title="@string/settings"
             />
             <item
-                android:id="@+id/iMenu_mMenu_Logout"
+                android:id="@+id/iMenu_mDrawer_Logout"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/logout"
                 android:title="@string/logout"

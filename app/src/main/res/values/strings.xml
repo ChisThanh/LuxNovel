@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Lux Novel</string>
     <string name="image">Image</string>
     <string name="temp">Temp</string>
@@ -15,6 +15,7 @@
     <string name="write">Write</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
+    <string name="search">Search</string>
 
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -30,4 +31,9 @@
     <string name="remember">Remember Account</string>
     <string name="recover_password">Recover Password</string>
     <string name="or">or</string>
+
+    <string name="continue_stories">Continue Your Stories</string>
+    <string name="top_stories">Top Rated Stories</string>
+    <string name="editor_picks">Editor\'s Picks</string>
+
 </resources>
