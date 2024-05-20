@@ -70,6 +70,8 @@ public class ActivityRegister extends AppCompatActivity
                     Log.e("Thông báo","Chưa nhập đủ thông tin");
 
                 }
+                else if (!isValidEmail(email)) {
+                    Log.e("Thông báo", "Email không hợp lệ");}
                 //Đầy đủ thông tin thì cho add tài khoản vào database
                 else{
                     userHandler.AddAccount(user);
@@ -78,6 +80,11 @@ public class ActivityRegister extends AppCompatActivity
             }
         });
     }
+    private boolean isValidEmail(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
     private User CreateAccount(){
         String account=uText_aRegister_Username.getText().toString();
         String pass=uText_aRegister_Password.getText().toString();
