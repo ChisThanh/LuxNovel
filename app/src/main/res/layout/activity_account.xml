@@ -5,29 +5,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:id="@+id/lDrawer_aMain_Drawer"
+    android:id="@+id/lDrawer_aAccount_Drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
 
-    tools:context=".ActivityMain"
->
+    tools:context="Activity.ActivityAccount"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-    >
+        >
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        >
+            >
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/uToolbar_aMain_Toolbar"
+                android:id="@+id/uToolbar_aAccount_Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
@@ -35,8 +35,8 @@
                 android:theme="?attr/actionBarTheme"
                 app:navigationIcon="@drawable/menu"
                 app:menu="@menu/menu_toolbar"
-                app:title="@string/app_name"
-            />
+                app:title="@string/account"
+                />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -44,14 +44,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-        >
+            >
 
         </LinearLayout>
 
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/vNavigation_aMain_Navigation"
+        android:id="@+id/vNavigation_aAccount_Navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -64,7 +64,7 @@
 
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    />
+        />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

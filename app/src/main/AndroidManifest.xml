@@ -27,6 +27,12 @@
         <activity android:name=".Activity.ActivityLogin"/>
         <activity android:name=".Activity.ActivityRegister"/>
         <activity android:name=".Activity.ActivityForgot"/>
+        <activity android:name=".Activity.ActivityHome"/>
+        <activity android:name=".Activity.ActivityLibrary"/>
+        <activity android:name=".Activity.ActivityRead"/>
+        <activity android:name=".Activity.ActivityWrite"/>
+        <activity android:name=".Activity.ActivityAccount"/>
+        <activity android:name=".Activity.ActivitySettings"/>
 
     </application>
 

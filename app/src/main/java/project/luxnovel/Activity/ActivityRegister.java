@@ -2,13 +2,18 @@ package project.luxnovel.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import project.luxnovel.Database.UserHandler;
 import project.luxnovel.Helper.HelperShared;
+import project.luxnovel.Model.User;
 import project.luxnovel.R;
 
 public class ActivityRegister extends AppCompatActivity
@@ -17,12 +22,13 @@ public class ActivityRegister extends AppCompatActivity
     TextView vText_aRegister_UsernameAnnotation, vText_aRegister_PasswordAnnotation, vText_aRegister_EmailAnnotation, vText_aRegister_Login;
     Button uButton_aRegister_Register;
     Intent intent;
-
+    UserHandler userHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        userHandler = new UserHandler(this, "Novel.db", null, 1);
 
         addControls();
         vText_aRegister_UsernameAnnotation.setText("");
@@ -52,7 +58,34 @@ public class ActivityRegister extends AppCompatActivity
             intent = new Intent(ActivityRegister.this, ActivityLogin.class);
             startActivity(intent);
         });
+        uButton_aRegister_Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nameLogin=uText_aRegister_Username.getText().toString();
+                String password=uText_aRegister_Password.getText().toString();
+                String email=uText_aRegister_Email.getText().toString();
+                User user=CreateAccount();
+                if(nameLogin.equals("")||password.equals("")||email.equals(""))
+                {
+                    Log.e("Thông báo","Chưa nhập đủ thông tin");
+
+                }
+                //Đầy đủ thông tin thì cho add tài khoản vào database
+                else{
+                    userHandler.AddAccount(user);
+                    Toast.makeText(ActivityRegister.this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+    private User CreateAccount(){
+        String account=uText_aRegister_Username.getText().toString();
+        String pass=uText_aRegister_Password.getText().toString();
+        String email=uText_aRegister_Email.getText().toString();
+        User ac=new User(account,pass,email);
+        return  ac;
+    }
+
 }
 
 
