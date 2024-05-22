@@ -1,5 +1,6 @@
 package project.luxnovel.Database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -41,21 +42,25 @@ public class UserHandler extends SQLiteOpenHelper {
         // Handle database upgrade
     }
 
-    public ArrayList<User> loadAccount() {
+    @SuppressLint("Range")
+    public ArrayList<User> loadAccount(String nameLogin) {
         SQLiteDatabase db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
         ArrayList<User> users = new ArrayList<>();
-        Cursor cursor = db.rawQuery("SELECT * FROM User WHERE name_Login=?", null);
-        cursor.moveToFirst();
-        do {
-            User user = new User();
-            user.setId_User(cursor.getInt(0));
-            user.setName_Login(cursor.getString(1));
-            user.setPassword(cursor.getString(2));
-            user.setEmail(cursor.getString(3));
-            user.setDob(cursor.getString(4));
-            user.setGender(cursor.getString(5));
-            users.add(user);
-        } while (cursor.moveToNext());
+        Cursor cursor = db.rawQuery("SELECT * FROM User WHERE name_Login=?", new String[]{nameLogin});
+
+        if (cursor.moveToFirst()) {
+            do {
+                User user = new User();
+                user.setId_User(cursor.getInt(cursor.getColumnIndex("id_User")));
+                user.setName_Login(cursor.getString(cursor.getColumnIndex("name_Login")));
+                user.setPassword(cursor.getString(cursor.getColumnIndex("password")));
+                user.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+                user.setUserName(cursor.getString(cursor.getColumnIndex("username")));
+                user.setDob(cursor.getString(cursor.getColumnIndex("dob")));
+                user.setGender(cursor.getString(cursor.getColumnIndex("gender")));
+                users.add(user);
+            } while (cursor.moveToNext());
+        }
         cursor.close();
         db.close();
         return users;

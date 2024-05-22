@@ -89,7 +89,8 @@ public class ActivityLogin extends AppCompatActivity
                         //gửi dữ liệu qua Main
                         intent.putExtra("id",ID_User);
                         intent.putExtra("email",email);
-                        intent.putExtra("nameLogin",nameLogin);
+                        intent.putExtra("name_Login",nameLogin);
+
                         intent.putExtra("UserName",UserName);
                         startActivity(intent);
                     }

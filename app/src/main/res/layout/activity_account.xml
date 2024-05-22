@@ -44,27 +44,71 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            >
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/uText_aAccount_NameLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Login Name"
+                android:enabled="false"/>
 
+            <EditText
+                android:id="@+id/uText_aAccount_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"/>
+
+            <EditText
+                android:id="@+id/uText_aAccount_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"/>
+
+            <EditText
+                android:id="@+id/uText_aAccount_Username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username"/>
+
+            <EditText
+                android:id="@+id/uText_aAccount_Dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:hint="Date of Birth"/>
+
+            <EditText
+                android:id="@+id/uText_aAccount_Gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Gender"/>
+
+            <Button
+                android:id="@+id/uButton_aAccount_Update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Information"/>
         </LinearLayout>
 
     </LinearLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/vNavigation_aAccount_Navigation"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/vNavigation_aAccount_Navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        android:fitsSystemWindows="true"-->
 
-        app:headerLayout="@layout/header_header"
-        app:menu="@menu/menu_drawer"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
+<!--        app:headerLayout="@layout/header_header"-->
+<!--        app:menu="@menu/menu_drawer"-->
+<!--        app:itemIconTint="@color/black"-->
+<!--        app:itemTextColor="@color/black"-->
 
-        android:scrollbars="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+<!--        android:scrollbars="vertical"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        />-->
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
