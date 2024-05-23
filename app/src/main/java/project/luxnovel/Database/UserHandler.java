@@ -20,26 +20,20 @@ public class UserHandler extends SQLiteOpenHelper {
     private String path;
     private Context context;
 
-    //public UserHandler(@Nullable Context context) {
-        //this(context, DB_NAME, null, DB_VERSION);
-    //}
-
     public UserHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-        this.DB_NAME=name;
+        this.DB_NAME = name;
         this.context = context;
-        this.DB_VERSION=version;
-        this.path=context.getFilesDir()+"/db/"+DB_NAME;
+        this.DB_VERSION = version;
+        this.path = context.getFilesDir() + "/db/" + DB_NAME;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Create your tables here
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Handle database upgrade
     }
 
     @SuppressLint("Range")
@@ -69,33 +63,26 @@ public class UserHandler extends SQLiteOpenHelper {
     public Cursor getDataUser() {
         SQLiteDatabase db;
 
-        db=SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
-        Cursor cursor = db.rawQuery("select * from User",null);
+        db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = db.rawQuery("select * from User", null);
         return cursor;
     }
+
     public void AddAccount(User user) {
         SQLiteDatabase db;
 
-        db=SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
-        //Chắc vậy hả ta :)
-        //chay thu di
-        ///kkk
+        db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
         ContentValues values = new ContentValues();
         values.put("name_Login", user.getName_Login());
         values.put("password", user.getPassword());
         values.put("email", user.getEmail());
-        // Thêm các giá trị khác nếu có
 
-        // Thực hiện truy vấn để thêm tài khoản vào cơ sở dữ liệu
         long result = db.insert("User", null, values);
         if (result == -1) {
-            // Đã xảy ra lỗi khi thêm tài khoản
             Log.e("UserHandler", "Thêm tài khoản thất bại");
         } else {
-            // Tài khoản đã được thêm thành công
             Log.d("UserHandler", "Thêm tài khoản thành công");
         }
-        // Đóng cơ sở dữ liệu
         db.close();
     }
 

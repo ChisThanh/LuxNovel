@@ -4,27 +4,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:id="@+id/lDrawer_aAccount_Drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:openDrawer="start"
     android:fitsSystemWindows="true"
-
     tools:context="Activity.ActivityAccount"
-    >
+    tools:openDrawer="start">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/uToolbar_aAccount_Toolbar"
@@ -33,10 +27,9 @@
                 android:background="?attr/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
-                app:navigationIcon="@drawable/menu"
                 app:menu="@menu/menu_toolbar"
-                app:title="@string/account"
-                />
+                app:navigationIcon="@drawable/menu"
+                app:title="@string/account" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -44,94 +37,72 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-<<<<<<< HEAD
             android:orientation="vertical">
+
             <EditText
                 android:id="@+id/uText_aAccount_NameLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Login Name"
-                android:enabled="false"/>
+                android:enabled="false"
+                android:hint="Login Name" />
 
             <EditText
                 android:id="@+id/uText_aAccount_Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/uText_aAccount_Email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/uText_aAccount_Username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"/>
+                android:hint="Username" />
 
             <EditText
                 android:id="@+id/uText_aAccount_Dob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
-                android:hint="Date of Birth"/>
+                android:hint="Date of Birth"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/uText_aAccount_Gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Gender"/>
+                android:hint="Gender" />
 
             <Button
                 android:id="@+id/uButton_aAccount_Update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update Information"/>
-=======
-            >
+                android:text="Update Information" />
 
->>>>>>> lattecrone
+
         </LinearLayout>
 
     </LinearLayout>
 
-<<<<<<< HEAD
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        android:id="@+id/vNavigation_aAccount_Navigation"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        android:fitsSystemWindows="true"-->
 
-<!--        app:headerLayout="@layout/header_header"-->
-<!--        app:menu="@menu/menu_drawer"-->
-<!--        app:itemIconTint="@color/black"-->
-<!--        app:itemTextColor="@color/black"-->
-
-<!--        android:scrollbars="vertical"-->
-<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--        />-->
-=======
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/vNavigation_aAccount_Navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-
+        android:scrollbars="vertical"
         app:headerLayout="@layout/header_header"
-        app:menu="@menu/menu_drawer"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
-
-        android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
->>>>>>> lattecrone
+        app:menu="@menu/menu_drawer" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

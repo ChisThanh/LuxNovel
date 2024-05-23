@@ -31,7 +31,6 @@ public class ActivityRegister extends AppCompatActivity {
 
         userHandler = new UserHandler(this, "Novel.db", null, 1);
 
-
         addControls();
         vText_aRegister_UsernameAnnotation.setText("");
         vText_aRegister_PasswordAnnotation.setText("");
@@ -59,24 +58,20 @@ public class ActivityRegister extends AppCompatActivity {
             startActivity(intent);
         });
 
-        uButton_aRegister_Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nameLogin = uText_aRegister_Username.getText().toString();
-                String password = uText_aRegister_Password.getText().toString();
-                String email = uText_aRegister_Email.getText().toString();
-                User user = CreateAccount();
-                if (nameLogin.equals("") || password.equals("") || email.equals("")) {
-                    Log.e("Thông báo", "Chưa nhập đủ thông tin");
+        uButton_aRegister_Register.setOnClickListener(v -> {
+            String nameLogin = uText_aRegister_Username.getText().toString();
+            String password = uText_aRegister_Password.getText().toString();
+            String email = uText_aRegister_Email.getText().toString();
+            User user = CreateAccount();
+            if (nameLogin.equals("") || password.equals("") || email.equals("")) {
+                Log.e("Thông báo", "Chưa nhập đủ thông tin");
 
-                } else if (!isValidEmail(email)) {
-                    Log.e("Thông báo", "Email không hợp lệ");
-                }
-                //Đầy đủ thông tin thì cho add tài khoản vào database
-                else {
-                    userHandler.AddAccount(user);
-                    Toast.makeText(ActivityRegister.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                }
+            } else if (!isValidEmail(email)) {
+                Log.e("Thông báo", "Email không hợp lệ");
+            }
+            else {
+                userHandler.AddAccount(user);
+                Toast.makeText(ActivityRegister.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }

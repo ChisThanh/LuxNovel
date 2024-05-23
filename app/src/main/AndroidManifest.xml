@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -14,14 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LuxNovel"
-        tools:targetApi="31"
-    >
-
-
-
-
-        <activity android:name=".Activity.ActivityLogin" android:exported="true">
-
+        tools:targetApi="31">
+        <activity
+            android:name=".Activity.ActivityLogin"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,18 +23,15 @@
         </activity>
 
 
-<!--        <activity android:name=".ActivityMain"/>-->
-<!--        <activity android:name=".Activity.ActivityLogin" android:exported="true">-->
-<!--        <activity android:name=".Activity.ActivityLogin"/>-->
-
-        <activity android:name=".Activity.ActivityRegister"/>
-        <activity android:name=".Activity.ActivityForgot"/>
-        <activity android:name=".Activity.ActivityHome"/>
-        <activity android:name=".Activity.ActivityLibrary"/>
-        <activity android:name=".Activity.ActivityRead"/>
-        <activity android:name=".Activity.ActivityWrite"/>
-        <activity android:name=".Activity.ActivityAccount"/>
-        <activity android:name=".Activity.ActivitySettings"/>
+        <activity android:name=".ActivityMain" />
+        <activity android:name=".Activity.ActivityRegister" />
+        <activity android:name=".Activity.ActivityForgot" />
+        <activity android:name=".Activity.ActivityHome" />
+        <activity android:name=".Activity.ActivityLibrary" />
+        <activity android:name=".Activity.ActivityRead" />
+        <activity android:name=".Activity.ActivityWrite" />
+        <activity android:name=".Activity.ActivityAccount" />
+        <activity android:name=".Activity.ActivitySettings" />
 
     </application>
 
