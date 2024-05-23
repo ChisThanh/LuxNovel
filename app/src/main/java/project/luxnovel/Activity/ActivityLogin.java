@@ -80,7 +80,7 @@ public class ActivityLogin extends AppCompatActivity {
                     String nameLogin = cursor.getString(1);
                     String UserName = cursor.getString(4);
                     Auth auth = Auth.getAuth();
-                    auth.setUser(new User(UserName));
+                    auth.setUser(new User(nameLogin));
                     Intent intent = new Intent(ActivityLogin.this, ActivityMain.class);
                     startActivity(intent);
                 }

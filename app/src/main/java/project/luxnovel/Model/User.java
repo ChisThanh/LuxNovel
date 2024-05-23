@@ -17,8 +17,8 @@ public class User {
         Dob = dob;
         Gender = gender;
     }
-    public User( String userName) {
-        this.UserName = userName;
+    public User( String name_Login) {
+        this.name_Login = name_Login;
     }
 
     public User() {

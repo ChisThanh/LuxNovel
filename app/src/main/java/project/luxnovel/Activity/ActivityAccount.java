@@ -40,7 +40,7 @@ public class ActivityAccount extends AppCompatActivity {
         Auth auth = Auth.getAuth();
         User userAuth = auth.getUser();
 
-        String loggedInUserName = userAuth.getUserName();
+        String loggedInUserName = userAuth.getName_Login();
         Toast.makeText(this, "Logged in as " + loggedInUserName, Toast.LENGTH_SHORT).show();
         if (loggedInUserName == null || loggedInUserName.isEmpty()) {
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();

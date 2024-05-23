@@ -45,13 +45,13 @@ public class UserHandler extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 User user = new User();
-                user.setId_User(cursor.getInt(cursor.getColumnIndex("id_User")));
-                user.setName_Login(cursor.getString(cursor.getColumnIndex("name_Login")));
-                user.setPassword(cursor.getString(cursor.getColumnIndex("password")));
-                user.setEmail(cursor.getString(cursor.getColumnIndex("email")));
-                user.setUserName(cursor.getString(cursor.getColumnIndex("username")));
-                user.setDob(cursor.getString(cursor.getColumnIndex("dob")));
-                user.setGender(cursor.getString(cursor.getColumnIndex("gender")));
+                user.setId_User(cursor.getInt(0));
+                user.setName_Login(cursor.getString(1));
+                user.setPassword(cursor.getString(2));
+                user.setEmail(cursor.getString(3));
+                user.setUserName(cursor.getString(4));
+                user.setDob(cursor.getString(5));
+                user.setGender(cursor.getString(6));
                 users.add(user);
             } while (cursor.moveToNext());
         }
