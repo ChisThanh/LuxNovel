@@ -44,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
+<<<<<<< HEAD
             android:orientation="vertical">
             <EditText
                 android:id="@+id/uText_aAccount_NameLogin"
@@ -90,10 +91,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Update Information"/>
+=======
+            >
+
+>>>>>>> lattecrone
         </LinearLayout>
 
     </LinearLayout>
 
+<<<<<<< HEAD
 <!--    <com.google.android.material.navigation.NavigationView-->
 <!--        android:id="@+id/vNavigation_aAccount_Navigation"-->
 <!--        android:layout_width="match_parent"-->
@@ -109,6 +115,23 @@
 <!--        android:scrollbars="vertical"-->
 <!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
 <!--        />-->
+=======
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/vNavigation_aAccount_Navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+
+        app:headerLayout="@layout/header_header"
+        app:menu="@menu/menu_drawer"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+>>>>>>> lattecrone
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
