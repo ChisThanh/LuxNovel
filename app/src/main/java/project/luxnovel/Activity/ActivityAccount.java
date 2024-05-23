@@ -1,9 +1,7 @@
 package project.luxnovel.Activity;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 
 import project.luxnovel.Database.UserHandler;
+import project.luxnovel.Helper.Auth;
 import project.luxnovel.Helper.HelperShared;
 import project.luxnovel.Model.User;
 import project.luxnovel.R;
@@ -37,8 +36,12 @@ public class ActivityAccount extends AppCompatActivity {
         userHandler = new UserHandler(this, "Novel.db", null, 1);
         addControls();
         addDrawer();
-        Intent intent = getIntent();
-        String loggedInUserName = intent.getStringExtra("name_Login");
+
+        Auth auth = Auth.getAuth();
+        User userAuth = auth.getUser();
+
+        String loggedInUserName = userAuth.getUserName();
+        Toast.makeText(this, "Logged in as " + loggedInUserName, Toast.LENGTH_SHORT).show();
         if (loggedInUserName == null || loggedInUserName.isEmpty()) {
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
             finish();

@@ -13,7 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import project.luxnovel.ActivityMain;
 import project.luxnovel.Database.UserHandler;
+import project.luxnovel.Helper.Auth;
 import project.luxnovel.Helper.HelperShared;
+import project.luxnovel.Model.User;
 import project.luxnovel.R;
 
 public class ActivityLogin extends AppCompatActivity {
@@ -77,12 +79,9 @@ public class ActivityLogin extends AppCompatActivity {
                     String email = cursor.getString(3);
                     String nameLogin = cursor.getString(1);
                     String UserName = cursor.getString(4);
+                    Auth auth = Auth.getAuth();
+                    auth.setUser(new User(UserName));
                     Intent intent = new Intent(ActivityLogin.this, ActivityMain.class);
-                    intent.putExtra("id", ID_User);
-                    intent.putExtra("email", email);
-                    intent.putExtra("name_Login", nameLogin);
-
-                    intent.putExtra("UserName", UserName);
                     startActivity(intent);
                 }
             }
