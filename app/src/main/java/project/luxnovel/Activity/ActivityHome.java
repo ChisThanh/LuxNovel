@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import project.luxnovel.Helper.HelperShared;
+import project.luxnovel.Helper.HelperInterface;
 import project.luxnovel.R;
 
 public class ActivityHome extends AppCompatActivity
@@ -28,7 +28,7 @@ public class ActivityHome extends AppCompatActivity
 
         addControls();
         addDrawer();
-        HelperShared.linkDrawer(ActivityHome.this, lDrawer_aHome_Drawer, uToolbar_aHome_Toolbar, vNavigation_aHome_Navigation);
+        HelperInterface.linkDrawer(ActivityHome.this, lDrawer_aHome_Drawer, uToolbar_aHome_Toolbar, vNavigation_aHome_Navigation);
         addEvents();
 
     }

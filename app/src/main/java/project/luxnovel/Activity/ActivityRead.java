@@ -9,7 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
-import project.luxnovel.Helper.HelperShared;
+import project.luxnovel.Helper.HelperInterface;
 import project.luxnovel.R;
 
 public class ActivityRead extends AppCompatActivity
@@ -26,7 +26,7 @@ public class ActivityRead extends AppCompatActivity
 
         addControls();
         addDrawer();
-        HelperShared.linkDrawer(ActivityRead.this, lDrawer_aRead_Drawer, uToolbar_aRead_Toolbar, vNavigation_aRead_Navigation);
+        HelperInterface.linkDrawer(ActivityRead.this, lDrawer_aRead_Drawer, uToolbar_aRead_Toolbar, vNavigation_aRead_Navigation);
         addEvents();
 
     }

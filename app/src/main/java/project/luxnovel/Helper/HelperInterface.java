@@ -24,7 +24,7 @@ import project.luxnovel.Activity.ActivitySettings;
 import project.luxnovel.Activity.ActivityWrite;
 import project.luxnovel.R;
 
-public class HelperShared
+public class HelperInterface
 {
     @SuppressLint("ClickableViewAccessibility")
     public static void toggleVisibility(EditText visibility_user)

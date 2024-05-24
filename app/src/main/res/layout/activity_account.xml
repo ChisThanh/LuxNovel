@@ -14,7 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+    >
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -29,7 +30,8 @@
                 android:theme="?attr/actionBarTheme"
                 app:menu="@menu/menu_toolbar"
                 app:navigationIcon="@drawable/menu"
-                app:title="@string/account" />
+                app:title="@string/account"
+            />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,59 +39,174 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/uText_aAccount_NameLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:hint="Login Name" />
-
-            <EditText
-                android:id="@+id/uText_aAccount_Password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword" />
-
-            <EditText
-                android:id="@+id/uText_aAccount_Email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
+            android:orientation="vertical"
+        >
 
             <EditText
                 android:id="@+id/uText_aAccount_Username"
+                android:enabled="false"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username" />
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/gray"
+                android:drawableStart="@drawable/username"
+
+                android:textSize="20sp"
+                android:background="@drawable/border"
+
+                android:autofillHints=""
+                android:hint="@string/username"
+                android:ems="10"
+                android:inputType="text"
+
+                tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_aAccount_Password"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/gray"
+                android:drawableStart="@drawable/password"
+                android:drawableEnd="@drawable/visibility"
+
+                android:textSize="20sp"
+                android:background="@drawable/border"
+
+                android:autofillHints=""
+                android:hint="@string/password"
+                android:ems="10"
+                android:inputType="textPassword"
+
+                tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_aAccount_Email"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/gray"
+                android:drawableStart="@drawable/email"
+
+                android:textSize="20sp"
+                android:background="@drawable/border"
+
+                android:autofillHints=""
+                android:hint="@string/email"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+
+                tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_aAccount_Name"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/gray"
+                android:drawableStart="@drawable/name"
+
+                android:textSize="20sp"
+                android:background="@drawable/border"
+
+                android:autofillHints=""
+                android:hint="@string/name"
+                android:ems="10"
+                android:inputType="text"
+
+                tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
+            />
 
             <EditText
                 android:id="@+id/uText_aAccount_Dob"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Date of Birth"
-                android:inputType="date" />
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/gray"
+                android:drawableStart="@drawable/dob"
+
+                android:textSize="20sp"
+                android:background="@drawable/border"
+
+                android:autofillHints=""
+                android:hint="@string/dob"
+                android:ems="10"
+                android:inputType="date"
+
+                tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
+            />
 
             <EditText
                 android:id="@+id/uText_aAccount_Gender"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Gender" />
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/gray"
+                android:drawableStart="@drawable/gender"
+
+                android:textSize="20sp"
+                android:background="@drawable/border"
+
+                android:autofillHints=""
+                android:hint="@string/gender"
+                android:ems="10"
+                android:inputType="text"
+
+                tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
+            />
 
             <Button
                 android:id="@+id/uButton_aAccount_Update"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update Information" />
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:text="@string/update_account"
+                android:background="@drawable/border"
+                tools:ignore="VisualLintButtonSize"
+            />
 
 
         </LinearLayout>
 
     </LinearLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/vNavigation_aAccount_Navigation"
@@ -102,7 +219,7 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:menu="@menu/menu_drawer" />
-
+        app:menu="@menu/menu_drawer"
+    />
 
 </androidx.drawerlayout.widget.DrawerLayout>

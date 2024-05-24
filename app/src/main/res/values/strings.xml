@@ -20,6 +20,10 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="dob">Date of Birth</string>
+    <string name="name">Name</string>
+    <string name="update_account">Update Account</string>
     <string name="username_annotation">Username Annotation</string>
     <string name="password_annotation">Password Annotation</string>
     <string name="email_annotation">Email Annotation</string>
