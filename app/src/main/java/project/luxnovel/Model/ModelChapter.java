@@ -4,7 +4,7 @@ public class ModelChapter
 {
     private Integer id;
     private Integer novel;
-    private Integer numerical;
+    private Integer serial;
     private Integer name;
     private Integer content;
     private String date;
@@ -29,14 +29,14 @@ public class ModelChapter
         this.novel = novel;
     }
 
-    public Integer getNumerical()
+    public Integer getSerial()
     {
-        return numerical;
+        return serial;
     }
 
-    public void setNumerical(Integer numerical)
+    public void setSerial(Integer numerical)
     {
-        this.numerical = numerical;
+        this.serial = numerical;
     }
 
     public Integer getName()
@@ -69,13 +69,20 @@ public class ModelChapter
         this.date = date;
     }
 
-    public ModelChapter(Integer id, Integer novel, Integer numerical, Integer name, Integer content, String date)
+    public ModelChapter(Integer id, Integer novel, Integer serial, Integer name, Integer content, String date)
     {
         this.id = id;
         this.novel = novel;
-        this.numerical = numerical;
+        this.serial = serial;
         this.name = name;
         this.content = content;
+        this.date = date;
+    }
+
+    public ModelChapter(Integer serial, Integer name, String date)
+    {
+        this.serial = serial;
+        this.name = name;
         this.date = date;
     }
 

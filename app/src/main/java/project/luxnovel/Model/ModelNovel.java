@@ -6,7 +6,7 @@ public class ModelNovel
     private String name;
     private Integer author;
     private Integer category;
-    private String describe;
+    private String description;
     private String state;
     private String cover;
 
@@ -50,14 +50,14 @@ public class ModelNovel
         this.category = category;
     }
 
-    public String getDescribe()
+    public String getDescription()
     {
-        return describe;
+        return description;
     }
 
-    public void setDescribe(String describe)
+    public void setDescription(String description)
     {
-        this.describe = describe;
+        this.description = description;
     }
 
     public String getState()
@@ -80,13 +80,13 @@ public class ModelNovel
         this.cover = cover;
     }
 
-    public ModelNovel(Integer id, String name, Integer author, Integer category, String describe, String state, String cover)
+    public ModelNovel(Integer id, String name, Integer author, Integer category, String description, String state, String cover)
     {
         this.id = id;
         this.name = name;
         this.author = author;
         this.category = category;
-        this.describe = describe;
+        this.description = description;
         this.state = state;
         this.cover = cover;
     }

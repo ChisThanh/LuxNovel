@@ -54,7 +54,7 @@ public class HandlerChapter extends SQLiteOpenHelper
 
             chapter.setId(cursor.getInt(0));
             chapter.setNovel(cursor.getInt(1));
-            chapter.setNumerical(cursor.getInt(2));
+            chapter.setSerial(cursor.getInt(2));
             chapter.setName(cursor.getInt(3));
             chapter.setContent(cursor.getInt(4));
             chapter.setDate(cursor.getString(5));
@@ -83,7 +83,7 @@ public class HandlerChapter extends SQLiteOpenHelper
 
                 chapter.setId(cursor.getInt(0));
                 chapter.setNovel(cursor.getInt(1));
-                chapter.setNumerical(cursor.getInt(2));
+                chapter.setSerial(cursor.getInt(2));
                 chapter.setName(cursor.getInt(3));
                 chapter.setContent(cursor.getInt(4));
                 chapter.setDate(cursor.getString(5));
@@ -109,7 +109,7 @@ public class HandlerChapter extends SQLiteOpenHelper
 
         values.put("id_Chapter", insert_chapter.getId());
         values.put("id_Novel", insert_chapter.getNovel());
-        values.put("Numerical", insert_chapter.getNumerical());
+        values.put("Numerical", insert_chapter.getSerial());
         values.put("Chapter_name", insert_chapter.getName());
         values.put("Chapter_content", insert_chapter.getContent());
         //noinspection SpellCheckingInspection
@@ -140,7 +140,7 @@ public class HandlerChapter extends SQLiteOpenHelper
 
         values.put("id_Chapter", update_chapter.getId());
         values.put("id_Novel", update_chapter.getNovel());
-        values.put("Numerical", update_chapter.getNumerical());
+        values.put("Numerical", update_chapter.getSerial());
         values.put("Chapter_name", update_chapter.getName());
         values.put("Chapter_content", update_chapter.getContent());
         //noinspection SpellCheckingInspection

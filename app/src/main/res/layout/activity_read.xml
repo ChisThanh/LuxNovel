@@ -19,12 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+    >
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+        >
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/uToolbar_aRead_Toolbar"
@@ -36,17 +36,16 @@
                 app:navigationIcon="@drawable/menu"
                 app:menu="@menu/menu_toolbar"
                 app:title="@string/read"
-                />
+            />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/lFrame_aRead_Content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            >
-
-        </LinearLayout>
+        />
 
     </LinearLayout>
 
@@ -64,7 +63,6 @@
 
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
-
+    />
 
 </androidx.drawerlayout.widget.DrawerLayout>

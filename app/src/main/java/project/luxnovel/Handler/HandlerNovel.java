@@ -56,7 +56,7 @@ public class HandlerNovel extends SQLiteOpenHelper
             novel.setName(cursor.getString(1));
             novel.setAuthor(cursor.getInt(2));
             novel.setCategory(cursor.getInt(3));
-            novel.setDescribe(cursor.getString(4));
+            novel.setDescription(cursor.getString(4));
             novel.setState(cursor.getString(5));
             novel.setCover(cursor.getString(6));
 
@@ -85,7 +85,7 @@ public class HandlerNovel extends SQLiteOpenHelper
                 novel.setName(cursor.getString(1));
                 novel.setAuthor(cursor.getInt(2));
                 novel.setCategory(cursor.getInt(3));
-                novel.setDescribe(cursor.getString(4));
+                novel.setDescription(cursor.getString(4));
                 novel.setState(cursor.getString(5));
                 novel.setCover(cursor.getString(6));
 
@@ -112,7 +112,7 @@ public class HandlerNovel extends SQLiteOpenHelper
         values.put("Novel_name", insert_novel.getName());
         values.put("id_Author", insert_novel.getAuthor());
         values.put("id_Category", insert_novel.getCategory());
-        values.put("Describe", insert_novel.getDescribe());
+        values.put("Describe", insert_novel.getDescription());
         values.put("Novel_state", insert_novel.getState());
         values.put("Novel_img", insert_novel.getCover());
 
@@ -143,7 +143,7 @@ public class HandlerNovel extends SQLiteOpenHelper
         values.put("Novel_name", update_novel.getName());
         values.put("id_Author", update_novel.getAuthor());
         values.put("id_Category", update_novel.getCategory());
-        values.put("Describe", update_novel.getDescribe());
+        values.put("Describe", update_novel.getDescription());
         values.put("Novel_state", update_novel.getState());
         values.put("Novel_img", update_novel.getCover());
 

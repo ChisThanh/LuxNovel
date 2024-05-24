@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="20dp"
+    android:orientation="horizontal"
+>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+    >
+
+        <TextView
+            android:id="@+id/vText_dChapter_Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@string/chapter_name"
+        />
+
+        <TextView
+            android:id="@+id/vText_dChapter_Serial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="@string/chapter_serial"
+        />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/vText_dChapter_Date"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="right"
+        android:textStyle="italic"
+        android:text="@string/chapter_date"
+        tools:ignore="RtlHardcoded"
+    />
+
+</LinearLayout>

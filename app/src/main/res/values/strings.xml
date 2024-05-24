@@ -40,4 +40,29 @@
     <string name="top_stories">Top Rated Stories</string>
     <string name="editor_picks">Editor\'s Picks</string>
 
+    <string name="novel">Novel</string>
+    <string name="author">Author</string>
+    <string name="category">Category</string>
+    <string name="state">State</string>
+    <string name="description">Description</string>
+    <string name="novel_name">Novel Name</string>
+    <string name="novel_author">Novel Author</string>
+    <string name="novel_category">Novel Category</string>
+    <string name="novel_state">Novel State</string>
+    <string name="novel_description">Novel Description</string>
+    <string name="novel_rating">Novel Rating</string>
+
+    <string name="comment">Comment</string>
+    <string name="rating">Rating</string>
+    <string name="comment_user">Comment User</string>
+    <string name="comment_rating">Comment Rating</string>
+    <string name="comment_rating_number">0.0</string>
+    <string name="comment_comment">Comment Comment</string>
+
+    <string name="chapter">Chapter</string>
+    <string name="chapter_name">Chapter Name</string>
+    <string name="chapter_serial">Chapter Serial</string>
+    <string name="chapter_date">Chapter Date</string>
+    <string name="chapter_content">Chapter Content</string>
+
 </resources>

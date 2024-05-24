@@ -7,19 +7,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import project.luxnovel.Activity.ActivityAccount;
 import project.luxnovel.Activity.ActivityHome;
+import project.luxnovel.Activity.ActivityRead;
 
-public class ActivityMain extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity
+{
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = getIntent();
-        String nameLogin = intent.getStringExtra("name_Login");
-        Intent intent1 = new Intent(ActivityMain.this, ActivityAccount.class);
-        intent1.putExtra("name_Login", nameLogin);
-        startActivity(intent1);
-
-        startActivity(new Intent(ActivityMain.this, ActivityHome.class));
+        Intent intent = new Intent(ActivityMain.this, ActivityRead.class);
+        startActivity(intent);
     }
 }
