@@ -21,7 +21,7 @@ import project.luxnovel.R;
 public class ActivityLogin extends AppCompatActivity
 {
     EditText uText_aLogin_Username, uText_aLogin_Password;
-    TextView vText_aLogin_UsernameAnnotation, vText_aLogin_PasswordAnnotation, vText_aLogin_Forgot, vText_aLogin_Register;
+    TextView vText_aLogin_UsernameAnnotation, vText_aLogin_PasswordAnnotation, vText_aLogin_Recover, vText_aLogin_Register;
     CheckBox uCheck_aLogin_Remember;
     Button uButton_aLogin_Login;
     Intent intent;
@@ -50,7 +50,7 @@ public class ActivityLogin extends AppCompatActivity
         uText_aLogin_Password = findViewById(R.id.uText_aLogin_Password);
         vText_aLogin_UsernameAnnotation = findViewById(R.id.vText_aLogin_UsernameAnnotation);
         vText_aLogin_PasswordAnnotation = findViewById(R.id.vText_aLogin_PasswordAnnotation);
-        vText_aLogin_Forgot = findViewById(R.id.vText_aLogin_Forgot);
+        vText_aLogin_Recover = findViewById(R.id.vText_aLogin_Recover);
         vText_aLogin_Register = findViewById(R.id.vText_aLogin_Register);
         uCheck_aLogin_Remember = findViewById(R.id.uCheck_aLogin_Remember);
         uButton_aLogin_Login = findViewById(R.id.uButton_aLogin_Login);
@@ -59,9 +59,9 @@ public class ActivityLogin extends AppCompatActivity
     @SuppressLint("SetTextI18n")
     private void addEvents()
     {
-        vText_aLogin_Forgot.setOnClickListener(view ->
+        vText_aLogin_Recover.setOnClickListener(view ->
         {
-            intent = new Intent(ActivityLogin.this, ActivityForgot.class);
+            intent = new Intent(ActivityLogin.this, ActivityRecover.class);
             startActivity(intent);
         });
 
