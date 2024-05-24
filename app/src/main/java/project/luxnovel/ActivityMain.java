@@ -5,9 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import project.luxnovel.Activity.ActivityAccount;
 import project.luxnovel.Activity.ActivityHome;
-import project.luxnovel.Activity.ActivityRead;
 
 public class ActivityMain extends AppCompatActivity
 {
@@ -17,7 +15,7 @@ public class ActivityMain extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(ActivityMain.this, ActivityRead.class);
+        Intent intent = new Intent(ActivityMain.this, ActivityHome.class);
         startActivity(intent);
     }
 }

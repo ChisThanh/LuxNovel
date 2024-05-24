@@ -8,4 +8,7 @@
     <color name="error_red">#ed4337</color>
     <color name="canary_yellow">#ffff8f</color>
     <color name="golden_glow">#ffe497</color>
+    <color name="light_khaki">#ebf094</color>
+    <color name="bubblegum">#ffc2c7</color>
+    <color name="turquoise_blue">#55d6e3</color>
 </resources>

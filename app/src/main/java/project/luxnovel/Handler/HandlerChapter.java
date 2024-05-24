@@ -55,7 +55,7 @@ public class HandlerChapter extends SQLiteOpenHelper
             chapter.setId(cursor.getInt(0));
             chapter.setNovel(cursor.getInt(1));
             chapter.setSerial(cursor.getInt(2));
-            chapter.setName(cursor.getInt(3));
+            chapter.setName(cursor.getString(3));
             chapter.setContent(cursor.getInt(4));
             chapter.setDate(cursor.getString(5));
 
@@ -84,7 +84,7 @@ public class HandlerChapter extends SQLiteOpenHelper
                 chapter.setId(cursor.getInt(0));
                 chapter.setNovel(cursor.getInt(1));
                 chapter.setSerial(cursor.getInt(2));
-                chapter.setName(cursor.getInt(3));
+                chapter.setName(cursor.getString(3));
                 chapter.setContent(cursor.getInt(4));
                 chapter.setDate(cursor.getString(5));
 

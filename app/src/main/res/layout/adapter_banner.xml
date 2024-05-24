@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="410dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+>
+
+    <ImageView
+        android:id="@+id/vImage_dBanner_Cover"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/image"
+        android:scaleType="fitXY"
+        tools:srcCompat="@tools:sample/avatars"
+    />
+
+    <TextView
+        android:id="@+id/vText_dBanner_Name"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/vImage_dBanner_Cover"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:text="@string/novel_name"
+    />
+
+    <TextView
+        android:id="@+id/vText_dBanner_Author"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/vImage_dBanner_Cover"
+        android:layout_below="@id/vText_dBanner_Name"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="italic"
+        android:text="@string/novel_author"
+    />
+
+    <TextView
+        android:id="@+id/vText_dBanner_Category"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/vImage_dBanner_Cover"
+        android:layout_below="@id/vText_dBanner_Author"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/novel_category"
+    />
+
+    <TextView
+        android:id="@+id/vText_dBanner_Description"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_toEndOf="@id/vImage_dBanner_Cover"
+        android:layout_below="@id/vText_dBanner_Category"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/novel_description"
+    />
+
+    <Button
+        android:id="@+id/uButton_dBanner_Read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/vImage_dBanner_Cover"
+        android:layout_below="@id/vText_dBanner_Description"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="150dp"
+        android:text="@string/read"
+        android:textColor="@color/black"
+        android:background="@drawable/border"
+    />
+
+</RelativeLayout>

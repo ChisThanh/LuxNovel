@@ -40,13 +40,11 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:scrollbars="vertical"
-            tools:ignore="ScrollViewCount"
         >
 
             <LinearLayout
@@ -55,54 +53,106 @@
                 android:orientation="vertical"
             >
 
-                <TextView
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:textSize="25sp"
-                    android:text="@string/continue_stories"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/continuei"
                 />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/vRecycler_aHome_Continue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
 
-                <TextView
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:textSize="25sp"
-                    android:text="@string/editor_picks"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/picks"
                 />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/vRecycler_aHome_Picks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
 
-                <TextView
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:textSize="25sp"
-                    android:text="@string/top_stories"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/top"
                 />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/vRecycler_aHome_Top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="horizontal"
+                />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/favorite"
+                />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vRecycler_aHome_Favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:nestedScrollingEnabled="true"
+                    android:orientation="horizontal"
+                />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/image"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/newi"
+                />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vRecycler_aHome_New"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
 
             </LinearLayout>
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
