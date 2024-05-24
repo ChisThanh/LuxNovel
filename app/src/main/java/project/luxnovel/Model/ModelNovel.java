@@ -8,7 +8,7 @@ public class ModelNovel
     private Integer category;
     private String describe;
     private String state;
-    private String image;
+    private String cover;
 
     public Integer getId()
     {
@@ -70,17 +70,17 @@ public class ModelNovel
         this.state = state;
     }
 
-    public String getImage()
+    public String getCover()
     {
-        return image;
+        return cover;
     }
 
-    public void setImage(String image)
+    public void setCover(String cover)
     {
-        this.image = image;
+        this.cover = cover;
     }
 
-    public ModelNovel(Integer id, String name, Integer author, Integer category, String describe, String state, String image)
+    public ModelNovel(Integer id, String name, Integer author, Integer category, String describe, String state, String cover)
     {
         this.id = id;
         this.name = name;
@@ -88,7 +88,7 @@ public class ModelNovel
         this.category = category;
         this.describe = describe;
         this.state = state;
-        this.image = image;
+        this.cover = cover;
     }
 
     public ModelNovel()

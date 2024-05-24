@@ -59,7 +59,7 @@ public class ActivityAccount extends AppCompatActivity
 
     private void loadUserData(String login_username)
     {
-        ModelUser user = user_handler.loadAccount(login_username);
+        ModelUser user = user_handler.loadOneUser(login_username);
         if(user == null)
         {
             Toast.makeText(ActivityAccount.this, "Empty User Data!", Toast.LENGTH_SHORT).show();

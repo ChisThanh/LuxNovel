@@ -10,16 +10,13 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-
 import project.luxnovel.Model.ModelUser;
 
 public class HandlerUser extends SQLiteOpenHelper
 {
-    public String DB_NAME;
-    public int DB_VERSION;
-    public String path;
-    public Context context;
+    String DB_NAME, path;
+    int DB_VERSION;
+    Context context;
 
     public HandlerUser(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version)
     {
@@ -45,7 +42,7 @@ public class HandlerUser extends SQLiteOpenHelper
     }
 
     @SuppressLint("Range")
-    public ModelUser loadAccount(String username)
+    public ModelUser loadOneUser(String username)
     {
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
         Cursor cursor = database.rawQuery("select * from User where name_Login=?", new String[]{username});
@@ -75,14 +72,14 @@ public class HandlerUser extends SQLiteOpenHelper
         return database.rawQuery("select * from User", null);
     }
 
-    public boolean insertAccount(ModelUser user)
+    public boolean insertAccount(ModelUser insert_user)
     {
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
         ContentValues values = new ContentValues();
 
-        values.put("name_Login", user.getUsername());
-        values.put("password", user.getPassword());
-        values.put("email", user.getEmail());
+        values.put("name_Login", insert_user.getUsername());
+        values.put("password", insert_user.getPassword());
+        values.put("email", insert_user.getEmail());
 
         long result = database.insert("User", null, values);
         if (result == -1)
