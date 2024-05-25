@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,10 +15,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 
+import project.luxnovel.Activity.ActivityAuthor;
 import project.luxnovel.Activity.ActivityLibrary;
+import project.luxnovel.Activity.ActivityRead;
 import project.luxnovel.Adapter.AdapterChapter;
 import project.luxnovel.Adapter.AdapterComment;
 import project.luxnovel.Handler.HandlerAuthor;
@@ -127,6 +132,34 @@ public class FragmentNovel extends Fragment
 
     private void addEvents()
     {
+        vList_fNovel_Chapter.setOnItemClickListener((adapter_view, view, position, id) -> loadChapter(novel.getId(), chapter_list.get(position).getId()));
 
+        vText_fNovel_Author.setOnClickListener(view ->
+        {
+            Intent intent = new Intent(requireContext(), ActivityAuthor.class);
+            intent.putExtra("author_id", novel.getAuthor());
+            startActivity(intent);
+        });
+
+        vText_fNovel_Category.setOnClickListener(view->
+        {
+            Intent intent = new Intent(requireContext(), ActivityLibrary.class);
+            intent.putExtra("category_id", novel.getCategory());
+            startActivity(intent);
+        });
+    }
+
+    private void loadChapter(Integer novel_id, Integer chapter_id)
+    {
+        FragmentChapter fragment = new FragmentChapter();
+        Bundle bundle = new Bundle();
+        bundle.putInt("novel_id", novel_id);
+        bundle.putInt("chapter_id", chapter_id);
+        fragment.setArguments(bundle);
+
+        FragmentManager fragment_manager = getParentFragmentManager();
+        FragmentTransaction fragment_transaction = fragment_manager.beginTransaction();
+        fragment_transaction.replace(R.id.lFrame_aRead_Content, fragment);
+        fragment_transaction.commit();
     }
 }

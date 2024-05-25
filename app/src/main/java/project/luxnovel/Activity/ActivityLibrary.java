@@ -35,6 +35,7 @@ public class ActivityLibrary extends AppCompatActivity
     ArrayList<ModelCategory> category_list;
     ArrayList<ModelNovel> novel_list;
     AdapterDisplay display_adapter;
+    Integer category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,10 +43,15 @@ public class ActivityLibrary extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("category_id"))
+            category = intent.getIntExtra("category_id", 0);
+        else category = 0;
+
         addControls();
         addDrawer();
         addCategories();
-        loadDisplay(0);
+        loadDisplay(category);
         addAdapter();
         addEvents();
     }
@@ -80,7 +86,7 @@ public class ActivityLibrary extends AppCompatActivity
         for(ModelCategory category : category_list)
             lTab_aLibrary_Category.addTab(lTab_aLibrary_Category.newTab().setId(category.getId()).setText(category.getName()));
 
-        lTab_aLibrary_Category.selectTab(lTab_aLibrary_Category.getTabAt(0));
+        lTab_aLibrary_Category.selectTab(lTab_aLibrary_Category.getTabAt(category));
     }
 
     private void addAdapter()

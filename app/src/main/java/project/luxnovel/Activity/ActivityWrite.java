@@ -16,6 +16,7 @@ public class ActivityWrite extends AppCompatActivity
 {
     DrawerLayout lDrawer_aWrite_Drawer;
     Toolbar uToolbar_aWrite_Toolbar;
+
     NavigationView vNavigation_aWrite_Navigation;
 
     @Override

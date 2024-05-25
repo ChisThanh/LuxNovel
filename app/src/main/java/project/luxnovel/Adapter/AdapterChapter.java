@@ -50,6 +50,7 @@ public class AdapterChapter extends BaseAdapter
 
         TextView vText_dChapter_Name = item_view.findViewById(R.id.vText_dChapter_Name);
         if(chapter.getName().length() >= 40) vText_dChapter_Name.setText(chapter.getName().substring(10, 37) + "...");
+        else if(chapter.getName().length() <= 10) vText_dChapter_Name.setText(chapter.getName());
         else vText_dChapter_Name.setText(chapter.getName().substring(10));
 
         TextView vText_dChapter_Serial = item_view.findViewById(R.id.vText_dChapter_Serial);

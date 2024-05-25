@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:id="@+id/lDrawer_aLibrary_Drawer"
+    android:id="@+id/lDrawer_aAuthor_Drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     tools:openDrawer="start"
     android:fitsSystemWindows="true"
 
-    tools:context="Activity.ActivityLibrary"
+    tools:context=".Activity.ActivityAuthor"
 >
 
     <LinearLayout
@@ -27,43 +27,59 @@
         >
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/uToolbar_aLibrary_Toolbar"
+                android:id="@+id/uToolbar_aAuthor_Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:navigationIcon="@drawable/menu"
-                app:title="@string/library"
-            />
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/lTab_aLibrary_Category"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                app:tabTextColor="@color/black"
-                app:tabSelectedTextColor="@color/turquoise_blue"
-                app:tabIndicatorColor="@color/turquoise_blue"
-                app:tabMode="scrollable"
-            />
+                app:title="@string/author"
+        />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/vRecycler_aLibrary_Library"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:scrollbars="vertical"
-        />
+            android:orientation="vertical"
+        >
+
+            <TextView
+                android:id="@+id/vText_aAuthor_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="@string/author"
+            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="@string/author_novel"
+            />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vRecycler_aAuthor_Novel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:scrollbars="vertical"
+            />
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/vNavigation_aLibrary_Navigation"
+        android:id="@+id/vNavigation_aAuthor_Navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -77,5 +93,6 @@
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

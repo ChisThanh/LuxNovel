@@ -39,7 +39,7 @@ public class HandlerChapter extends SQLiteOpenHelper
 
     }
 
-    public ArrayList<ModelChapter> loadChapter(int load_id)
+    public ArrayList<ModelChapter> loadChapter(Integer load_id)
     {
         ArrayList<ModelChapter> chapter_list = new ArrayList<>();
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
@@ -54,7 +54,7 @@ public class HandlerChapter extends SQLiteOpenHelper
             chapter.setNovel(cursor.getInt(1));
             chapter.setSerial(cursor.getInt(2));
             chapter.setName(cursor.getString(3));
-            chapter.setContent(cursor.getInt(4));
+            chapter.setContent(cursor.getString(4));
             chapter.setDate(cursor.getString(5));
 
             chapter_list.add(chapter);

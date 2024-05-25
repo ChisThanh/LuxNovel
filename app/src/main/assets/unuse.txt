@@ -158,6 +158,34 @@
         return chapter_list;
     }
 
+    public ModelChapter findChapter(Integer find_id)
+    {
+        ModelChapter chapter = new ModelChapter();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from Chapter where id_Chapter = ?", new String[] {String.valueOf(find_id)});
+
+        if (cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                chapter.setId(cursor.getInt(0));
+                chapter.setNovel(cursor.getInt(1));
+                chapter.setSerial(cursor.getInt(2));
+                chapter.setName(cursor.getString(3));
+                chapter.setContent(cursor.getString(4));
+                chapter.setDate(cursor.getString(5));
+            }
+            while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        assert cursor != null;
+        cursor.close();
+        database.close();
+        return chapter;
+    }
+
     public ArrayList<ModelCategory> searchCategory(String search_name)
     {
         ArrayList<ModelCategory> category_list = new ArrayList<>();

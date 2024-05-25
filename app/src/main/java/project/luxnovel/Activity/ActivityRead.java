@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
+import project.luxnovel.Fragment.FragmentChapter;
 import project.luxnovel.Fragment.FragmentNovel;
 import project.luxnovel.Helper.HelperInterface;
 import project.luxnovel.R;
@@ -45,13 +46,13 @@ public class ActivityRead extends AppCompatActivity
             if (id != -1)
             {
                 saveSharedPreferences(id);
-                loadFragment(new FragmentNovel(), id);
+                loadNovel(id);
                 return;
             }
         }
 
         int save_id = getSharedPreferences();
-        loadFragment(new FragmentNovel(), save_id);
+        loadNovel(save_id);
     }
 
     private void saveSharedPreferences(Integer id)
@@ -84,10 +85,11 @@ public class ActivityRead extends AppCompatActivity
         HelperInterface.linkDrawer(ActivityRead.this, lDrawer_aRead_Drawer, uToolbar_aRead_Toolbar, vNavigation_aRead_Navigation);
     }
 
-    private void loadFragment(Fragment fragment, Integer id)
+    private void loadNovel(Integer novel_id)
     {
+        FragmentNovel fragment = new FragmentNovel();
         Bundle bundle = new Bundle();
-        bundle.putInt("novel_id", id);
+        bundle.putInt("novel_id", novel_id);
         fragment.setArguments(bundle);
 
         FragmentManager fragment_manager = getSupportFragmentManager();

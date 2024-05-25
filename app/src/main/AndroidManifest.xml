@@ -34,6 +34,7 @@
         <activity android:name=".Activity.ActivityWrite" />
         <activity android:name=".Activity.ActivityAccount" />
         <activity android:name=".Activity.ActivitySettings" />
+        <activity android:name=".Activity.ActivityAuthor" />
 
     </application>
 

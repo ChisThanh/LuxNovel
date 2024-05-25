@@ -35,15 +35,15 @@
                 android:theme="?attr/actionBarTheme"
                 app:navigationIcon="@drawable/menu"
                 app:title="@string/write"
-                />
+            />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_margin="10dp"
+        >
 
         </LinearLayout>
 
@@ -63,7 +63,6 @@
 
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
-
+    />
 
 </androidx.drawerlayout.widget.DrawerLayout>

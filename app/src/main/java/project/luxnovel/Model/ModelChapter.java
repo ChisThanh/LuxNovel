@@ -6,7 +6,7 @@ public class ModelChapter
     private Integer novel;
     private Integer serial;
     private String name;
-    private Integer content;
+    private String content;
     private String date;
 
     public Integer getId()
@@ -49,12 +49,12 @@ public class ModelChapter
         this.name = name;
     }
 
-    public Integer getContent()
+    public String getContent()
     {
         return content;
     }
 
-    public void setContent(Integer content)
+    public void setContent(String content)
     {
         this.content = content;
     }
@@ -69,7 +69,7 @@ public class ModelChapter
         this.date = date;
     }
 
-    public ModelChapter(Integer id, Integer novel, Integer serial, String name, Integer content, String date)
+    public ModelChapter(Integer id, Integer novel, Integer serial, String name, String content, String date)
     {
         this.id = id;
         this.novel = novel;

@@ -42,8 +42,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_margin="10dp"
         >
 
             <LinearLayout
@@ -55,9 +54,6 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
                     android:contentDescription="@string/image"
                     android:scaleType="fitXY"
                     android:src="@drawable/continuei"
@@ -67,8 +63,7 @@
                     android:id="@+id/vRecycler_aHome_Continue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
@@ -76,7 +71,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
                     android:contentDescription="@string/image"
                     android:scaleType="fitXY"
                     android:src="@drawable/picks"
@@ -86,8 +81,7 @@
                     android:id="@+id/vRecycler_aHome_Picks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
@@ -95,7 +89,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
                     android:contentDescription="@string/image"
                     android:scaleType="fitXY"
                     android:src="@drawable/top"
@@ -105,8 +99,7 @@
                     android:id="@+id/vRecycler_aHome_Top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
@@ -114,7 +107,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
                     android:contentDescription="@string/image"
                     android:scaleType="fitXY"
                     android:src="@drawable/favorite"
@@ -124,8 +117,7 @@
                     android:id="@+id/vRecycler_aHome_Favorite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />
@@ -133,7 +125,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
                     android:contentDescription="@string/image"
                     android:scaleType="fitXY"
                     android:src="@drawable/newi"
@@ -143,8 +135,7 @@
                     android:id="@+id/vRecycler_aHome_New"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="true"
                     android:orientation="horizontal"
                 />

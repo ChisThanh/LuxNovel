@@ -13,18 +13,18 @@
     android:fitsSystemWindows="true"
 
     tools:context="Activity.ActivitySettings"
-    >
+>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+    >
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+        >
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/uToolbar_aSettings_Toolbar"
@@ -35,15 +35,15 @@
                 android:theme="?attr/actionBarTheme"
                 app:navigationIcon="@drawable/menu"
                 app:title="@string/settings"
-                />
+            />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_margin="10dp"
+        >
 
         </LinearLayout>
 
@@ -63,7 +63,6 @@
 
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
-
+    />
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -65,4 +65,7 @@
     <string name="chapter_date">Chapter Date</string>
     <string name="chapter_content">Chapter Content</string>
 
+    <string name="author_name">Author Name</string>
+    <string name="author_novel">List of Novel</string>
+
 </resources>
