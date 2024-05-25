@@ -35,8 +35,6 @@ public class ActivityAccount extends AppCompatActivity
         user_handler = new HandlerUser(ActivityAccount.this, "Novel.db", null, 1);
         addControls();
         addDrawer();
-        HelperInterface.linkDrawer(ActivityAccount.this, lDrawer_aAccount_Drawer, uToolbar_aAccount_Toolbar, vNavigation_aAccount_Navigation);
-        HelperInterface.toggleVisibility(uText_aAccount_Password);
         addEvents();
 
         HelperAuthentication authentication = HelperAuthentication.getAuthentication();
@@ -90,6 +88,9 @@ public class ActivityAccount extends AppCompatActivity
         setSupportActionBar(uToolbar_aAccount_Toolbar);
         ActionBarDrawerToggle action_bar_drawer_toggle = new ActionBarDrawerToggle(ActivityAccount.this, lDrawer_aAccount_Drawer, R.string.navigation_open, R.string.navigation_close);
         action_bar_drawer_toggle.syncState();
+
+        HelperInterface.linkDrawer(ActivityAccount.this, lDrawer_aAccount_Drawer, uToolbar_aAccount_Toolbar, vNavigation_aAccount_Navigation);
+        HelperInterface.toggleVisibility(uText_aAccount_Password);
     }
 
     private void addEvents()

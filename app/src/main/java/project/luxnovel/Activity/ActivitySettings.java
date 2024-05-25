@@ -26,9 +26,7 @@ public class ActivitySettings extends AppCompatActivity
 
         addControls();
         addDrawer();
-        HelperInterface.linkDrawer(ActivitySettings.this, lDrawer_aSettings_Drawer, uToolbar_aSettings_Toolbar, vNavigation_aSettings_Navigation);
         addEvents();
-
     }
 
     private void addControls()
@@ -43,6 +41,7 @@ public class ActivitySettings extends AppCompatActivity
         setSupportActionBar(uToolbar_aSettings_Toolbar);
         ActionBarDrawerToggle action_bar_drawer_toggle = new ActionBarDrawerToggle(ActivitySettings.this, lDrawer_aSettings_Drawer, R.string.navigation_open, R.string.navigation_close);
         action_bar_drawer_toggle.syncState();
+        HelperInterface.linkDrawer(ActivitySettings.this, lDrawer_aSettings_Drawer, uToolbar_aSettings_Toolbar, vNavigation_aSettings_Navigation);
     }
 
     private void addEvents()

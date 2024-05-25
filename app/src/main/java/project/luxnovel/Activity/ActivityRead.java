@@ -34,7 +34,6 @@ public class ActivityRead extends AppCompatActivity
 
         addControls();
         addDrawer();
-        HelperInterface.linkDrawer(ActivityRead.this, lDrawer_aRead_Drawer, uToolbar_aRead_Toolbar, vNavigation_aRead_Navigation);
         addEvents();
 
         loadFragment(new FragmentNovel());
@@ -54,6 +53,7 @@ public class ActivityRead extends AppCompatActivity
         setSupportActionBar(uToolbar_aRead_Toolbar);
         ActionBarDrawerToggle action_bar_drawer_toggle = new ActionBarDrawerToggle(ActivityRead.this, lDrawer_aRead_Drawer, R.string.navigation_open, R.string.navigation_close);
         action_bar_drawer_toggle.syncState();
+        HelperInterface.linkDrawer(ActivityRead.this, lDrawer_aRead_Drawer, uToolbar_aRead_Toolbar, vNavigation_aRead_Navigation);
     }
 
     private void addEvents()

@@ -73,7 +73,7 @@ public class HandlerNovel extends SQLiteOpenHelper
     {
         ArrayList<ModelNovel> novel_list = new ArrayList<>();
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
-        Cursor cursor = database.rawQuery("select * from Chapter where Novel_name='" + search_name + "'", null);
+        Cursor cursor = database.rawQuery("select * from Novel where Novel_name like '%" + search_name + "%'", null);
 
         if (cursor != null && cursor.moveToFirst())
         {
@@ -95,7 +95,7 @@ public class HandlerNovel extends SQLiteOpenHelper
 
             cursor.close();
         }
-        else new AlertDialog.Builder(context).setTitle("Announcement").setMessage("There Is No Novel With That Name").setPositiveButton(android.R.string.ok, (dialog, number) -> dialog.dismiss()).show();
+        //else new AlertDialog.Builder(context).setTitle("Announcement").setMessage("There Is No Novel With That Name").setPositiveButton(android.R.string.ok, (dialog, number) -> dialog.dismiss()).show();
 
         assert cursor != null;
         cursor.close();

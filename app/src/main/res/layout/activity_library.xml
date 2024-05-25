@@ -13,7 +13,7 @@
     android:fitsSystemWindows="true"
 
     tools:context="Activity.ActivityLibrary"
-    >
+>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+        >
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/uToolbar_aLibrary_Toolbar"
@@ -35,17 +35,26 @@
                 android:theme="?attr/actionBarTheme"
                 app:navigationIcon="@drawable/menu"
                 app:title="@string/library"
-                />
+            />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/lTab_aLibrary_Category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:tabTextColor="@color/black"
+                app:tabSelectedTextColor="@color/turquoise_blue"
+                app:tabIndicatorColor="@color/turquoise_blue"
+                app:tabMode="scrollable"
+            />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vRecycler_aLibrary_Library"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            >
-
-        </LinearLayout>
+        />
 
     </LinearLayout>
 
@@ -63,7 +72,6 @@
 
         android:scrollbars="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
-
+    />
 
 </androidx.drawerlayout.widget.DrawerLayout>

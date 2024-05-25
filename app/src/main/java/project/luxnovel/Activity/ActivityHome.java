@@ -44,8 +44,6 @@ public class ActivityHome extends AppCompatActivity
         addAdapter(vRecycler_aHome_New, new_novel);
 
         addDrawer();
-        HelperInterface.linkDrawer(ActivityHome.this, lDrawer_aHome_Drawer, uToolbar_aHome_Toolbar, vNavigation_aHome_Navigation);
-
         addEvents();
     }
 
@@ -66,6 +64,7 @@ public class ActivityHome extends AppCompatActivity
         setSupportActionBar(uToolbar_aHome_Toolbar);
         ActionBarDrawerToggle action_bar_drawer_toggle = new ActionBarDrawerToggle(ActivityHome.this, lDrawer_aHome_Drawer, R.string.navigation_open, R.string.navigation_close);
         action_bar_drawer_toggle.syncState();
+        HelperInterface.linkDrawer(ActivityHome.this, lDrawer_aHome_Drawer, uToolbar_aHome_Toolbar, vNavigation_aHome_Navigation);
     }
 
     private void addData()

@@ -11,9 +11,11 @@
     </style>
     <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
     </style>
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
     </style>
 
     <style name="Theme.LuxNovel" parent="Base.Theme.LuxNovel" />

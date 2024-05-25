@@ -40,18 +40,18 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         return new ViewBanner(view);
     }
 
-    @SuppressLint("DiscouragedApi")
+    @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull ViewBanner holder, int position)
     {
         ModelNovel novel = novel_list.get(position);
 
         holder.vImage_dBanner_Cover.setImageResource(layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName()));
-        if(novel.getName().length() >= 25) holder.vText_dBanner_Name.setText(novel.getName().substring(0, 24));
+        if(novel.getName().length() >= 25) holder.vText_dBanner_Name.setText(novel.getName().substring(0, 22) + "...");
         else holder.vText_dBanner_Name.setText(novel.getName());
         holder.vText_dBanner_Author.setText(String.valueOf(novel.getAuthor()));
         holder.vText_dBanner_Category.setText(String.valueOf(novel.getCategory()));
-        if(novel.getDescription().length() >= 100) holder.vText_dBanner_Description.setText(novel.getDescription().substring(0, 99));
+        if(novel.getDescription().length() >= 100) holder.vText_dBanner_Description.setText(novel.getDescription().substring(0, 96) + "...") ;
         else holder.vText_dBanner_Description.setText(novel.getDescription());
 
         holder.uButton_dBanner_Read.setOnClickListener(view ->
@@ -77,6 +77,7 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         public ViewBanner(@NonNull View view)
         {
             super(view);
+
             vImage_dBanner_Cover = view.findViewById(R.id.vImage_dBanner_Cover);
             vText_dBanner_Name = view.findViewById(R.id.vText_dBanner_Name);
             vText_dBanner_Author = view.findViewById(R.id.vText_dBanner_Author);

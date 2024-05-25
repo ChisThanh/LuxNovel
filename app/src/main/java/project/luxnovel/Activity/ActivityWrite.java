@@ -26,9 +26,7 @@ public class ActivityWrite extends AppCompatActivity
 
         addControls();
         addDrawer();
-        HelperInterface.linkDrawer(ActivityWrite.this, lDrawer_aWrite_Drawer, uToolbar_aWrite_Toolbar, vNavigation_aWrite_Navigation);
         addEvents();
-
     }
 
     private void addControls()
@@ -43,6 +41,7 @@ public class ActivityWrite extends AppCompatActivity
         setSupportActionBar(uToolbar_aWrite_Toolbar);
         ActionBarDrawerToggle action_bar_drawer_toggle = new ActionBarDrawerToggle(ActivityWrite.this, lDrawer_aWrite_Drawer, R.string.navigation_open, R.string.navigation_close);
         action_bar_drawer_toggle.syncState();
+        HelperInterface.linkDrawer(ActivityWrite.this, lDrawer_aWrite_Drawer, uToolbar_aWrite_Toolbar, vNavigation_aWrite_Navigation);
     }
 
     private void addEvents()
