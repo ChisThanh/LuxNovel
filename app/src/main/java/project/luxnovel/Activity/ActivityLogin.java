@@ -27,7 +27,6 @@ public class ActivityLogin extends AppCompatActivity
     Intent intent;
     HandlerUser user_handler;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -123,8 +122,6 @@ public class ActivityLogin extends AppCompatActivity
             cursor.close();
         });
     }
-
-
 }
 
 

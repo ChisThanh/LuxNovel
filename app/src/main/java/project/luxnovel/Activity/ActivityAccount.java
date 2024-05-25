@@ -26,7 +26,6 @@ public class ActivityAccount extends AppCompatActivity
     EditText uText_aAccount_Username, uText_aAccount_Password, uText_aAccount_Email, uText_aAccount_Name, uText_aAccount_Dob, uText_aAccount_Gender;
     HandlerUser user_handler;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -55,7 +54,6 @@ public class ActivityAccount extends AppCompatActivity
 
         loadUserData(login_in);
     }
-
 
     private void loadUserData(String login_username)
     {
