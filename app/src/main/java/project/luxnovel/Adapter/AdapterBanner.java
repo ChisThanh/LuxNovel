@@ -57,7 +57,7 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         holder.uButton_dBanner_Read.setOnClickListener(view ->
         {
             Intent intent = new Intent(layout_inflater.getContext(), ActivityRead.class);
-            intent.putExtra("id", novel.getId());
+            intent.putExtra("novel_id", novel.getId());
             layout_inflater.getContext().startActivity(intent);
         });
     }

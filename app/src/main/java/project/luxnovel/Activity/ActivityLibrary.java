@@ -128,7 +128,7 @@ public class ActivityLibrary extends AppCompatActivity
         display_adapter.setOnItemClickListener(novel ->
         {
             Intent intent = new Intent(ActivityLibrary.this, ActivityRead.class);
-            intent.putExtra("id", novel.getId());
+            intent.putExtra("novel_id", novel.getId());
             startActivity(intent);
         });
     }

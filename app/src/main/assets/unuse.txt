@@ -1,0 +1,320 @@
+    public boolean insertNovel(ModelNovel insert_novel)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Novel", insert_novel.getId());
+        values.put("Novel_name", insert_novel.getName());
+        values.put("id_Author", insert_novel.getAuthor());
+        values.put("id_Category", insert_novel.getCategory());
+        values.put("Describe", insert_novel.getDescription());
+        values.put("Novel_state", insert_novel.getState());
+        values.put("Novel_img", insert_novel.getCover());
+
+        int inserted_rows = (int) database.insert("Novel",null,values);
+        database.close();
+
+        return inserted_rows > 0;
+    }
+
+    public boolean deleteNovel(String delete_name)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        String selection = "Novel_name=?";
+        String[] parameter = {delete_name};
+
+        int deleted_rows = database.delete("Novel", selection, parameter);
+        database.close();
+
+        return deleted_rows > 0;
+    }
+
+    public boolean updateNovel(ModelNovel update_novel)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Novel", update_novel.getId());
+        values.put("Novel_name", update_novel.getName());
+        values.put("id_Author", update_novel.getAuthor());
+        values.put("id_Category", update_novel.getCategory());
+        values.put("Describe", update_novel.getDescription());
+        values.put("Novel_state", update_novel.getState());
+        values.put("Novel_img", update_novel.getCover());
+
+        int updated_rows = database.update("Novel", values, "id_Novel = ?", new String[]{String.valueOf(update_novel.getId())});
+        database.close();
+
+        return updated_rows > 0;
+    }
+
+    public ArrayList<ModelChapter> searchChapter(String search_name)
+    {
+        ArrayList<ModelChapter> chapter_list = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from Chapter where Chapter_name='" + search_name + "'", null);
+
+        if (cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                ModelChapter chapter = new ModelChapter();
+
+                chapter.setId(cursor.getInt(0));
+                chapter.setNovel(cursor.getInt(1));
+                chapter.setSerial(cursor.getInt(2));
+                chapter.setName(cursor.getString(3));
+                chapter.setContent(cursor.getInt(4));
+                chapter.setDate(cursor.getString(5));
+
+                chapter_list.add(chapter);
+            }
+            while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        assert cursor != null;
+        cursor.close();
+        database.close();
+        return chapter_list;
+    }
+
+    public boolean insertChapter(ModelChapter insert_chapter)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Chapter", insert_chapter.getId());
+        values.put("id_Novel", insert_chapter.getNovel());
+        values.put("Numerical", insert_chapter.getSerial());
+        values.put("Chapter_name", insert_chapter.getName());
+        values.put("Chapter_content", insert_chapter.getContent());
+        //noinspection SpellCheckingInspection
+        values.put("dateSubmiteted", insert_chapter.getDate());
+
+        int inserted_rows = (int) database.insert("Novel",null,values);
+        database.close();
+
+        return inserted_rows > 0;
+    }
+
+    public boolean deleteChapter(String delete_name)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        String selection = "Chapter_name=?";
+        String[] parameter = {delete_name};
+
+        int deleted_rows = database.delete("Chapter", selection, parameter);
+        database.close();
+
+        return deleted_rows > 0;
+    }
+
+    public boolean updateChapter(ModelChapter update_chapter)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Chapter", update_chapter.getId());
+        values.put("id_Novel", update_chapter.getNovel());
+        values.put("Numerical", update_chapter.getSerial());
+        values.put("Chapter_name", update_chapter.getName());
+        values.put("Chapter_content", update_chapter.getContent());
+        //noinspection SpellCheckingInspection
+        values.put("dateSubmiteted", update_chapter.getDate());
+
+        int updated_rows = database.update("Chapter", values, "id_Chapter=?", new String[]{String.valueOf(update_chapter.getId())});
+        database.close();
+
+        return updated_rows > 0;
+    }
+
+    public ArrayList<ModelChapter> loadChapter()
+    {
+        ArrayList<ModelChapter> chapter_list = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from Chapter",null);
+
+        cursor.moveToFirst();
+        do
+        {
+            ModelChapter chapter = new ModelChapter();
+
+            chapter.setId(cursor.getInt(0));
+            chapter.setNovel(cursor.getInt(1));
+            chapter.setSerial(cursor.getInt(2));
+            chapter.setName(cursor.getString(3));
+            chapter.setContent(cursor.getInt(4));
+            chapter.setDate(cursor.getString(5));
+
+            chapter_list.add(chapter);
+        }
+        while(cursor.moveToNext());
+
+        cursor.close();
+        database.close();
+
+        return chapter_list;
+    }
+
+    public ArrayList<ModelCategory> searchCategory(String search_name)
+    {
+        ArrayList<ModelCategory> category_list = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from Category where Category_name='" + search_name + "'", null);
+
+        if (cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                ModelCategory category = new ModelCategory();
+                category.setId(cursor.getInt(0));
+                category.setName(cursor.getString(1));
+
+                category_list.add(category);
+            }
+            while (cursor.moveToNext());
+
+            cursor.close();
+        }
+        else new AlertDialog.Builder(context).setTitle("Announcement").setMessage("There Is No Category With That Name").setPositiveButton(android.R.string.ok, (dialog, number) -> dialog.dismiss()).show();
+
+        assert cursor != null;
+        cursor.close();
+        database.close();
+        return category_list;
+    }
+
+    public boolean insertCategory(ModelCategory insert_category)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Category", insert_category.getId());
+        values.put("Category_name", insert_category.getName());
+
+        int inserted_rows = (int) database.insert("Category",null,values);
+        database.close();
+
+        return inserted_rows > 0;
+    }
+
+    public boolean deleteCategory(String delete_name)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        String selection = "Category_name=?";
+        String[] parameter = {delete_name};
+
+        int deleted_rows = database.delete("Category", selection, parameter);
+        database.close();
+
+        return deleted_rows > 0;
+    }
+
+    public boolean updateCategory(ModelCategory update_category)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Author", update_category.getId());
+        values.put("Author_name", update_category.getName());
+
+        int updated_rows = database.update("Category", values, "id_Category=?", new String[]{String.valueOf(update_category.getId())});
+        database.close();
+
+        return updated_rows > 0;
+    }
+
+
+    public ArrayList<ModelAuthor> searchAuthor(String search_name)
+    {
+        ArrayList<ModelAuthor> author_list = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from Author where Author_name='" + search_name + "'", null);
+
+        if (cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                ModelAuthor author = new ModelAuthor();
+
+                author.setId(cursor.getInt(0));
+                author.setName(cursor.getString(1));
+
+                author_list.add(author);
+            }
+            while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        assert cursor != null;
+        cursor.close();
+        database.close();
+        return author_list;
+    }
+
+    public boolean insertAuthor(ModelAuthor insert_author)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Author", insert_author.getId());
+        values.put("Author_name", insert_author.getName());
+
+        int inserted_rows = (int) database.insert("Author",null,values);
+        database.close();
+
+        return inserted_rows > 0;
+    }
+
+    public boolean deleteAuthor(String delete_name)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        String selection = "Author_name=?";
+        String[] parameter = {delete_name};
+
+        int deleted_rows = database.delete("Author", selection, parameter);
+        database.close();
+
+        return deleted_rows > 0;
+    }
+
+    public boolean updateAuthor(ModelAuthor update_author)
+    {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
+        ContentValues values = new ContentValues();
+
+        values.put("id_Author", update_author.getId());
+        values.put("Author_name", update_author.getName());
+
+        int updated_rows = database.update("Author", values, "id_Author=?", new String[]{String.valueOf(update_author.getId())});
+        database.close();
+
+        return updated_rows > 0;
+    }
+
+    public ArrayList<ModelAuthor> loadAuthor()
+    {
+        ArrayList<ModelAuthor> author_list = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from Author",null);
+
+        cursor.moveToFirst();
+        do
+        {
+            ModelAuthor author = new ModelAuthor();
+
+            author.setId(cursor.getInt(0));
+            author.setName(cursor.getString(1));
+
+            author_list.add(author);
+        }
+        while(cursor.moveToNext());
+
+        cursor.close();
+        database.close();
+
+        return author_list;
+    }

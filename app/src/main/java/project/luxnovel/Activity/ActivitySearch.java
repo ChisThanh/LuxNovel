@@ -2,6 +2,8 @@ package project.luxnovel.Activity;
 
 import android.annotation.SuppressLint;
 import androidx.appcompat.app.AlertDialog;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SearchView;
 
@@ -80,7 +82,9 @@ public class ActivitySearch extends AppCompatActivity
                 searchNovel(query);
 
                 if(novel_list.isEmpty())
-                    new AlertDialog.Builder(ActivitySearch.this, R.style.Custom_AlertDialog).setTitle("Empty").setMessage("There Is No Category With That Name").setPositiveButton("OK", (dialog, number) -> dialog.dismiss()).show();
+                    new AlertDialog.Builder(ActivitySearch.this, R.style.Custom_AlertDialog)
+                            .setTitle("Empty").setMessage("There Is No Category With That Name")
+                            .setPositiveButton("OK", (dialog, number) -> dialog.dismiss()).show();
 
                 return false;
             }
@@ -94,6 +98,13 @@ public class ActivitySearch extends AppCompatActivity
         });
 
         vSearch_aSearch_Search.setOnClickListener(view -> vSearch_aSearch_Search.setIconified(false));
+
+        display_adapter.setOnItemClickListener(novel ->
+        {
+            Intent intent = new Intent(ActivitySearch.this, ActivityRead.class);
+            intent.putExtra("novel_id", novel.getId());
+            startActivity(intent);
+        });
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -102,7 +113,7 @@ public class ActivitySearch extends AppCompatActivity
         //noinspection resource
         HandlerNovel novel_hanlder = new HandlerNovel(ActivitySearch.this, "Novel.db", null, 1);
         novel_list.clear();
-        novel_list.addAll(novel_hanlder.searchNovel(query));
+        novel_list.addAll(novel_hanlder.searchNovelName(query));
         display_adapter.notifyDataSetChanged();
     }
 }

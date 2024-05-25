@@ -1,8 +1,9 @@
 package project.luxnovel.Activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
-import project.luxnovel.Fragment.FragmentChapter;
 import project.luxnovel.Fragment.FragmentNovel;
 import project.luxnovel.Helper.HelperInterface;
 import project.luxnovel.R;
@@ -26,6 +26,9 @@ public class ActivityRead extends AppCompatActivity
     FrameLayout lFrame_aRead_Content;
     NavigationView vNavigation_aRead_Navigation;
 
+    static final String PREFS_NAME = "novel_shared_preferences";
+    static final String KEY_CURRENT_ID = "shared_id";
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -34,10 +37,35 @@ public class ActivityRead extends AppCompatActivity
 
         addControls();
         addDrawer();
-        addEvents();
 
-        loadFragment(new FragmentNovel());
-        Toast.makeText(ActivityRead.this, "Open Fragment Novel", Toast.LENGTH_SHORT).show();
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("novel_id"))
+        {
+            int id = intent.getIntExtra("novel_id", -1);
+            if (id != -1)
+            {
+                saveSharedPreferences(id);
+                loadFragment(new FragmentNovel(), id);
+                return;
+            }
+        }
+
+        int save_id = getSharedPreferences();
+        loadFragment(new FragmentNovel(), save_id);
+    }
+
+    private void saveSharedPreferences(Integer id)
+    {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(KEY_CURRENT_ID, id);
+        editor.apply();
+    }
+
+    private int getSharedPreferences()
+    {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        return preferences.getInt(KEY_CURRENT_ID, -1);
     }
 
     private void addControls()
@@ -56,13 +84,12 @@ public class ActivityRead extends AppCompatActivity
         HelperInterface.linkDrawer(ActivityRead.this, lDrawer_aRead_Drawer, uToolbar_aRead_Toolbar, vNavigation_aRead_Navigation);
     }
 
-    private void addEvents()
+    private void loadFragment(Fragment fragment, Integer id)
     {
+        Bundle bundle = new Bundle();
+        bundle.putInt("novel_id", id);
+        fragment.setArguments(bundle);
 
-    }
-
-    private void loadFragment(Fragment fragment)
-    {
         FragmentManager fragment_manager = getSupportFragmentManager();
         FragmentTransaction fragment_transaction = fragment_manager.beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aRead_Content, fragment);

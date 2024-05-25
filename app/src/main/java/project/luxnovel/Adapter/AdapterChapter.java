@@ -41,6 +41,7 @@ public class AdapterChapter extends BaseAdapter
         return position;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View view, ViewGroup view_group)
     {
@@ -48,13 +49,14 @@ public class AdapterChapter extends BaseAdapter
         @SuppressLint("ViewHolder") View item_view = layout_inflater.inflate(layout, null, false);
 
         TextView vText_dChapter_Name = item_view.findViewById(R.id.vText_dChapter_Name);
-        vText_dChapter_Name.setText(String.valueOf(chapter.getName()));
+        if(chapter.getName().length() >= 40) vText_dChapter_Name.setText(chapter.getName().substring(10, 37) + "...");
+        else vText_dChapter_Name.setText(chapter.getName().substring(10));
 
         TextView vText_dChapter_Serial = item_view.findViewById(R.id.vText_dChapter_Serial);
-        vText_dChapter_Serial.setText(String.valueOf(chapter.getSerial()));
+        vText_dChapter_Serial.setText("Chapter: " + chapter.getSerial());
 
         TextView vText_dChapter_Date = item_view.findViewById(R.id.vText_dChapter_Date);
-        vText_dChapter_Date.setText(chapter.getDate());
+        vText_dChapter_Date.setText(chapter.getDate().substring(0, 10));
 
         return item_view;
     }

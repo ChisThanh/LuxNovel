@@ -1,7 +1,5 @@
 package project.luxnovel.Handler;
 
-import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -65,70 +63,27 @@ public class HandlerCategory extends SQLiteOpenHelper
         return category_list;
     }
 
-    public ArrayList<ModelCategory> searchCategory(String search_name)
+    public ModelCategory findCategory(int find_id)
     {
-        ArrayList<ModelCategory> category_list = new ArrayList<>();
+        ModelCategory category = new ModelCategory();
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
-        Cursor cursor = database.rawQuery("select * from Category where Category_name='" + search_name + "'", null);
+        Cursor cursor = database.rawQuery("select * from Category where id_Category = ?", new String[] {String.valueOf(find_id)});
 
         if (cursor != null && cursor.moveToFirst())
         {
             do
             {
-                ModelCategory category = new ModelCategory();
                 category.setId(cursor.getInt(0));
                 category.setName(cursor.getString(1));
 
-                category_list.add(category);
             }
             while (cursor.moveToNext());
-
             cursor.close();
         }
-        else new AlertDialog.Builder(context).setTitle("Announcement").setMessage("There Is No Category With That Name").setPositiveButton(android.R.string.ok, (dialog, number) -> dialog.dismiss()).show();
 
         assert cursor != null;
         cursor.close();
         database.close();
-        return category_list;
-    }
-
-    public boolean insertCategory(ModelCategory insert_category)
-    {
-        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
-        ContentValues values = new ContentValues();
-
-        values.put("id_Category", insert_category.getId());
-        values.put("Category_name", insert_category.getName());
-
-        int inserted_rows = (int) database.insert("Category",null,values);
-        database.close();
-
-        return inserted_rows > 0;
-    }
-
-    public boolean deleteCategory(String delete_name)
-    {
-        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        String selection = "Category_name=?";
-        String[] parameter = {delete_name};
-
-        int deleted_rows = database.delete("Category", selection, parameter);
-        database.close();
-
-        return deleted_rows > 0;
-    }
-    public boolean updateCategory(ModelCategory update_category)
-    {
-        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.OPEN_READWRITE);
-        ContentValues values = new ContentValues();
-
-        values.put("id_Author", update_category.getId());
-        values.put("Author_name", update_category.getName());
-
-        int updated_rows = database.update("Category", values, "id_Category=?", new String[]{String.valueOf(update_category.getId())});
-        database.close();
-
-        return updated_rows > 0;
+        return category;
     }
 }
