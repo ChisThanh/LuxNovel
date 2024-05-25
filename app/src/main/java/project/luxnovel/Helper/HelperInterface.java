@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import project.luxnovel.Activity.ActivityAccount;
+import project.luxnovel.Activity.ActivityApi;
 import project.luxnovel.Activity.ActivityHome;
 import project.luxnovel.Activity.ActivityLibrary;
 import project.luxnovel.Activity.ActivityLogin;
@@ -94,6 +95,11 @@ public class HelperInterface
             {
                 drawer_layout.closeDrawer(GravityCompat.START);
                 activity.startActivity(new Intent(activity, ActivityWrite.class));
+            }
+            else if(id == R.id.iMenu_mDrawer_Api)
+            {
+                drawer_layout.closeDrawer(GravityCompat.START);
+                activity.startActivity(new Intent(activity, ActivityApi.class));
             }
             else if(id == R.id.iMenu_mDrawer_Account)
             {

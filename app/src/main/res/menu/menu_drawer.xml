@@ -42,6 +42,12 @@
                 android:icon="@drawable/write"
                 android:title="@string/write"
             />
+            <item
+                android:id="@+id/iMenu_mDrawer_Api"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/api"
+                android:title="@string/api"
+            />
         </menu>
     </item>
 

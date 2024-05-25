@@ -32,6 +32,7 @@
         <activity android:name=".Activity.ActivitySearch" />
         <activity android:name=".Activity.ActivityRead" />
         <activity android:name=".Activity.ActivityWrite" />
+        <activity android:name=".Activity.ActivityApi" />
         <activity android:name=".Activity.ActivityAccount" />
         <activity android:name=".Activity.ActivitySettings" />
         <activity android:name=".Activity.ActivityAuthor" />
