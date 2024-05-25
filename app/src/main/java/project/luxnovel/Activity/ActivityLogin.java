@@ -2,6 +2,7 @@ package project.luxnovel.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
@@ -27,6 +28,9 @@ public class ActivityLogin extends AppCompatActivity
     Intent intent;
     HandlerUser user_handler;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -35,14 +39,27 @@ public class ActivityLogin extends AppCompatActivity
 
         user_handler = new HandlerUser(ActivityLogin.this, "Novel.db", null, 1);
 
+        sharedPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         addControls();
+
         vText_aLogin_UsernameAnnotation.setText("");
         vText_aLogin_PasswordAnnotation.setText("");
 
+        loadLoginData();
         addEvents();
         HelperInterface.toggleVisibility(uText_aLogin_Password);
     }
-
+    private void loadLoginData() {
+        boolean isRemembered = sharedPreferences.getBoolean("remember", false);
+        if (isRemembered) {
+            String savedUsername = sharedPreferences.getString("username", "");
+            String savedPassword = sharedPreferences.getString("password", "");
+            uText_aLogin_Username.setText(savedUsername);
+            uText_aLogin_Password.setText(savedPassword);
+            uCheck_aLogin_Remember.setChecked(true);
+        }
+    }
     private void addControls()
     {
         uText_aLogin_Username = findViewById(R.id.uText_aLogin_Username);

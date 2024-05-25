@@ -64,6 +64,19 @@
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
             />
 
+            <TextView
+                android:id="@+id/vText_aAccount_UsernameAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/error_red"
+                android:text="@string/username_annotation"
+                tools:ignore="TextContrastCheck" />
+
             <EditText
                 android:id="@+id/uText_aAccount_Password"
 
@@ -86,6 +99,18 @@
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
             />
+            <TextView
+                android:id="@+id/vText_aAccount_PasswordAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/error_red"
+                android:text="@string/password_annotation"
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/uText_aAccount_Email"
@@ -108,7 +133,18 @@
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
             />
-
+            <TextView
+                android:id="@+id/vText_aAccount_EmailAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/error_red"
+                android:text="@string/email_annotation"
+                tools:ignore="TextContrastCheck" />
             <EditText
                 android:id="@+id/uText_aAccount_Name"
 
@@ -130,7 +166,18 @@
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
             />
-
+            <TextView
+                android:id="@+id/vText_aAccount_NameAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/error_red"
+                android:text="Name Annotation"
+                tools:ignore="TextContrastCheck" />
             <EditText
                 android:id="@+id/uText_aAccount_Dob"
 
@@ -152,7 +199,18 @@
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
             />
-
+            <TextView
+                android:id="@+id/vText_aAccount_DobAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/error_red"
+                android:text="Dob annotation"
+                tools:ignore="TextContrastCheck" />
             <EditText
                 android:id="@+id/uText_aAccount_Gender"
 
@@ -174,7 +232,18 @@
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
             />
-
+            <TextView
+                android:id="@+id/vText_aAccount_GenderAnnotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/error_red"
+                android:text="gender annotation"
+                tools:ignore="TextContrastCheck" />
             <Button
                 android:id="@+id/uButton_aAccount_Update"
 
@@ -204,7 +273,6 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:menu="@menu/menu_drawer"
-    />
+        app:menu="@menu/menu_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

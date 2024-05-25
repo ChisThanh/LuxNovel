@@ -95,4 +95,31 @@ public class HandlerUser extends SQLiteOpenHelper
             return false;
         }
     }
+    public boolean updateAccount(ModelUser update_user) {
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+        ContentValues values = new ContentValues();
+
+        //values.put("name_Login", update_user.getUsername());
+        values.put("password", update_user.getPassword());
+        values.put("email", update_user.getEmail());
+        values.put("username", update_user.getName());
+        values.put("dob", update_user.getDob());
+        values.put("gender", update_user.getGender());
+
+        // Assuming you have a unique ID or username to identify the user
+        String whereClause = "name_Login = ?";
+        String[] whereArgs = { String.valueOf(update_user.getUsername()) };
+
+        long result = database.update("User", values, whereClause, whereArgs);
+
+        database.close();
+
+        if (result > 0) {
+            Log.d("UserHandler", "Update Account Successfully!");
+            return true;
+        } else {
+            Log.e("UserHandler", "Update Account Unsuccessfully!");
+            return false;
+        }
+    }
 }

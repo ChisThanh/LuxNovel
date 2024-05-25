@@ -107,4 +107,13 @@ public class ModelUser
         this.dob = dob;
         this.gender = gender;
     }
+
+    public ModelUser(String username, String password, String email, String name, String dob, String gender) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.name = name;
+        this.dob = dob;
+        this.gender = gender;
+    }
 }
