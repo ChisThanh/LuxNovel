@@ -28,15 +28,22 @@
             android:text="@string/chapter_name"
         />
 
-        <TextView
-            android:id="@+id/vText_fChapter_Content"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="@string/description"
-        />
+        >
+
+            <TextView
+                android:id="@+id/vText_fChapter_Content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/description"
+            />
+
+        </ScrollView>
 
     </LinearLayout>
 

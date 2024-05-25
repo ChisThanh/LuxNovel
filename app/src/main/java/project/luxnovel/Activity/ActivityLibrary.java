@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -97,7 +98,13 @@ public class ActivityLibrary extends AppCompatActivity
 
         //noinspection resource
         HandlerNovel novel_hanlder = new HandlerNovel(ActivityLibrary.this, "Novel.db", null, 1);
-        novel_list.addAll(novel_hanlder.loadNovel());
+        if(category_id != 0) novel_list.addAll(novel_hanlder.filterNovelCategory(category_id));
+        else novel_list.addAll(novel_hanlder.loadNovel());
+
+        if(novel_list.isEmpty())
+            new AlertDialog.Builder(ActivityLibrary.this, R.style.Custom_AlertDialog)
+                    .setTitle("Empty").setMessage("There Is No Novel In That Category")
+                    .setPositiveButton("OK", (dialog, number) -> dialog.dismiss()).show();
     }
 
     private void addEvents()

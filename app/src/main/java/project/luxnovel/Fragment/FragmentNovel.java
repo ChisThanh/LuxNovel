@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +18,6 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
 import project.luxnovel.Activity.ActivityLibrary;
-import project.luxnovel.Activity.ActivitySearch;
 import project.luxnovel.Adapter.AdapterChapter;
 import project.luxnovel.Adapter.AdapterComment;
 import project.luxnovel.Handler.HandlerAuthor;

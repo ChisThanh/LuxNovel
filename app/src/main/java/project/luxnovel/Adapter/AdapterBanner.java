@@ -16,6 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import project.luxnovel.Activity.ActivityRead;
+import project.luxnovel.Handler.HandlerAuthor;
+import project.luxnovel.Handler.HandlerCategory;
+import project.luxnovel.Model.ModelAuthor;
+import project.luxnovel.Model.ModelCategory;
 import project.luxnovel.Model.ModelNovel;
 import project.luxnovel.R;
 
@@ -49,8 +53,19 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         holder.vImage_dBanner_Cover.setImageResource(layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName()));
         if(novel.getName().length() >= 25) holder.vText_dBanner_Name.setText(novel.getName().substring(0, 22) + "...");
         else holder.vText_dBanner_Name.setText(novel.getName());
-        holder.vText_dBanner_Author.setText(String.valueOf(novel.getAuthor()));
-        holder.vText_dBanner_Category.setText(String.valueOf(novel.getCategory()));
+
+        Integer author_id = novel.getAuthor();
+        //noinspection resource
+        HandlerAuthor author_hanlder = new HandlerAuthor(layout_inflater.getContext(), "Novel.db", null, 1);
+        ModelAuthor author = author_hanlder.findAuthor(author_id);
+        holder.vText_dBanner_Author.setText(author.getName());
+
+        Integer category_id = novel.getCategory();
+        //noinspection resource
+        HandlerCategory category_handler = new HandlerCategory(layout_inflater.getContext(), "Novel.db", null, 1);
+        ModelCategory category = category_handler.findCategory(category_id);
+        holder.vText_dBanner_Category.setText(category.getName());
+
         if(novel.getDescription().length() >= 100) holder.vText_dBanner_Description.setText(novel.getDescription().substring(0, 96) + "...") ;
         else holder.vText_dBanner_Description.setText(novel.getDescription());
 
