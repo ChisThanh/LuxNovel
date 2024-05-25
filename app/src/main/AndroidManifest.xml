@@ -29,6 +29,7 @@
         <activity android:name=".Activity.ActivityRecover" />
         <activity android:name=".Activity.ActivityHome" />
         <activity android:name=".Activity.ActivityLibrary" />
+        <activity android:name=".Activity.ActivitySearch" />
         <activity android:name=".Activity.ActivityRead" />
         <activity android:name=".Activity.ActivityWrite" />
         <activity android:name=".Activity.ActivityAccount" />

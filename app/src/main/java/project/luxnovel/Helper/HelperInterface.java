@@ -20,6 +20,7 @@ import project.luxnovel.Activity.ActivityHome;
 import project.luxnovel.Activity.ActivityLibrary;
 import project.luxnovel.Activity.ActivityLogin;
 import project.luxnovel.Activity.ActivityRead;
+import project.luxnovel.Activity.ActivitySearch;
 import project.luxnovel.Activity.ActivitySettings;
 import project.luxnovel.Activity.ActivityWrite;
 import project.luxnovel.R;
@@ -78,6 +79,11 @@ public class HelperInterface
             {
                 drawer_layout.closeDrawer(GravityCompat.START);
                 activity.startActivity(new Intent(activity, ActivityLibrary.class));
+            }
+            else if(id == R.id.iMenu_mMenu_Search)
+            {
+                drawer_layout.closeDrawer(GravityCompat.START);
+                activity.startActivity(new Intent(activity, ActivitySearch.class));
             }
             else if(id == R.id.iMenu_mDrawer_Read)
             {

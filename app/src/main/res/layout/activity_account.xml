@@ -28,7 +28,6 @@
                 android:background="?attr/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
-                app:menu="@menu/menu_toolbar"
                 app:navigationIcon="@drawable/menu"
                 app:title="@string/account"
             />

@@ -25,6 +25,12 @@
                 android:title="@string/library"
             />
             <item
+                android:id="@+id/iMenu_mMenu_Search"
+                app:showAsAction="ifRoom"
+                android:icon="@drawable/search"
+                android:title="@string/search"
+            />
+            <item
                 android:id="@+id/iMenu_mDrawer_Read"
                 app:showAsAction="ifRoom"
                 android:icon="@drawable/read"

@@ -34,7 +34,6 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:navigationIcon="@drawable/menu"
-                app:menu="@menu/menu_toolbar"
                 app:title="@string/app_name"
             />
 
