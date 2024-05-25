@@ -73,8 +73,7 @@ public class ActivityLogin extends AppCompatActivity
     }
 
     @SuppressLint("SetTextI18n")
-    private void addEvents()
-    {
+    private void addEvents() {
         vText_aLogin_Recover.setOnClickListener(view ->
         {
             intent = new Intent(ActivityLogin.this, ActivityRecover.class);
@@ -92,35 +91,42 @@ public class ActivityLogin extends AppCompatActivity
             String input_username = uText_aLogin_Username.getText().toString();
             String input_password = uText_aLogin_Password.getText().toString();
 
-
             boolean error = false;
 
-            if(input_username.isEmpty())
-            {
+            if (input_username.isEmpty()) {
                 vText_aLogin_UsernameAnnotation.setText("Missing");
                 error = true;
             }
-            if(input_password.isEmpty())
-            {
+            if (input_password.isEmpty()) {
                 vText_aLogin_PasswordAnnotation.setText("Missing");
                 error = true;
             }
 
-            if(error) return;
+            if (error) return;
 
             Cursor cursor = user_handler.getCursorUser();
             cursor.moveToFirst();
-            while ((cursor.moveToNext()))
-            {
+            while ((cursor.moveToNext())) {
                 String temp_username = cursor.getString(1);
                 String temp_password = cursor.getString(2);
 
-                if (temp_username.equals(input_username) && temp_password.equals(input_password))
-                {
+                if (temp_username.equals(input_username) && temp_password.equals(input_password)) {
                     String username = cursor.getString(1);
 
                     HelperAuthentication authentication = HelperAuthentication.getAuthentication();
                     authentication.setUser(new ModelUser(username));
+
+                    if (uCheck_aLogin_Remember.isChecked()) {
+                        editor.putBoolean("remember", true);
+                        editor.putString("username", input_username);
+                        editor.putString("password", input_password);
+                        editor.apply();
+                    } else {
+                        editor.putBoolean("remember", false);
+                        editor.remove("username");
+                        editor.remove("password");
+                        editor.apply();
+                    }
 
                     cursor.close();
 
@@ -131,8 +137,7 @@ public class ActivityLogin extends AppCompatActivity
                 }
             }
 
-            if(cursor.isAfterLast())
-            {
+            if (cursor.isAfterLast()) {
                 vText_aLogin_UsernameAnnotation.setText("Wrong Username");
                 vText_aLogin_PasswordAnnotation.setText("Wrong Password");
             }
