@@ -9,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:openDrawer="start"
+    tools:openDrawer="right"
     android:fitsSystemWindows="true"
 
     tools:context="Activity.ActivityApi"
@@ -44,7 +44,13 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             >
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/vRecycler_aAPI_API"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:scrollbars="vertical"
+                />
         </LinearLayout>
 
     </LinearLayout>
