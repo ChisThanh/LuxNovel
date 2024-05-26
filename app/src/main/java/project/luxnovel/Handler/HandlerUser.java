@@ -10,6 +10,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
+import project.luxnovel.Model.ModelNovel;
 import project.luxnovel.Model.ModelUser;
 
 public class HandlerUser extends SQLiteOpenHelper
@@ -42,10 +43,10 @@ public class HandlerUser extends SQLiteOpenHelper
     }
 
     @SuppressLint("Range")
-    public ModelUser loadOneUser(String username)
+    public ModelUser loadOneUser(int id)
     {
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        Cursor cursor = database.rawQuery("select * from User where name_Login=?", new String[]{username});
+        Cursor cursor = database.rawQuery("select * from User where id_User=?", new String[]{String.valueOf(id)});
 
         cursor.moveToFirst();
         ModelUser user = new ModelUser();
@@ -121,5 +122,35 @@ public class HandlerUser extends SQLiteOpenHelper
             Log.e("UserHandler", "Update Account Unsuccessfully!");
             return false;
         }
+    }
+
+
+    public ModelUser findUser(Integer find_id)
+    {
+        ModelUser user  = new ModelUser();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("select * from User where id_User = ?", new String[] {String.valueOf(find_id)});
+
+        if (cursor != null && cursor.moveToFirst())
+        {
+            do
+            {
+                user.setId(cursor.getInt(0));
+                user.setName(cursor.getString(1));
+                user.setPassword(cursor.getString(2));
+                user.setEmail(cursor.getString(3));
+                user.setUsername(cursor.getString(4));
+                user.setDob(cursor.getString(5));
+                user.setGender(cursor.getString(6));
+            }
+            while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        assert cursor != null;
+        cursor.close();
+        database.close();
+        return user;
     }
 }

@@ -10,16 +10,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import project.luxnovel.Model.ModelComment;
+import project.luxnovel.Handler.HandlerUser;
+import project.luxnovel.Model.ModelState;
+import project.luxnovel.Model.ModelUser;
 import project.luxnovel.R;
 
 public class AdapterComment extends BaseAdapter
 {
     LayoutInflater layout_inflater;
     Integer layout;
-    ArrayList<ModelComment> comment_list;
+    ArrayList<ModelState> comment_list;
 
-    public AdapterComment(Activity activity, Integer layout, ArrayList<ModelComment> comment_list)
+    public AdapterComment(Activity activity, Integer layout, ArrayList<ModelState> comment_list)
     {
         layout_inflater = activity.getLayoutInflater();
         this.layout = layout;
@@ -44,11 +46,13 @@ public class AdapterComment extends BaseAdapter
     @Override
     public View getView(int position, View view, ViewGroup view_group)
     {
-        ModelComment comment = comment_list.get(position);
+        ModelState comment = comment_list.get(position);
         @SuppressLint("ViewHolder") View item_view = layout_inflater.inflate(layout, null, false);
 
         TextView vText_dComment_User = item_view.findViewById(R.id.vText_dComment_User);
-        vText_dComment_User.setText(comment.getUser());
+        HandlerUser handlerUser = new HandlerUser(item_view.getContext(), "Novel.db", null, 1);
+        ModelUser temp = handlerUser.findUser(comment.getUser());
+        vText_dComment_User.setText(temp.getName());
 
         TextView vText_dComment_Rating = item_view.findViewById(R.id.vText_dComment_Rating);
         vText_dComment_Rating.setText(String.valueOf(comment.getRating()));

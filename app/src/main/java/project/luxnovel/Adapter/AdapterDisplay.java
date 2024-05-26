@@ -16,15 +16,13 @@ import java.util.ArrayList;
 import project.luxnovel.Model.ModelNovel;
 import project.luxnovel.R;
 
-public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewDisplay>
-{
+public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewDisplay> {
     LayoutInflater layout_inflater;
     Integer layout;
     ArrayList<ModelNovel> novel_list;
     OnItemClickListener listener;
 
-    public AdapterDisplay(Activity activity, Integer layout, ArrayList<ModelNovel> novel_list)
-    {
+    public AdapterDisplay(Activity activity, Integer layout, ArrayList<ModelNovel> novel_list) {
         this.layout_inflater = activity.getLayoutInflater();
         this.layout = layout;
         this.novel_list = novel_list;
@@ -32,46 +30,47 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewDisp
 
     @NonNull
     @Override
-    public AdapterDisplay.ViewDisplay onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public AdapterDisplay.ViewDisplay onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = layout_inflater.inflate(layout, null, false);
         return new AdapterDisplay.ViewDisplay(view);
     }
 
     @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull AdapterDisplay.ViewDisplay holder, int position)
-    {
+    public void onBindViewHolder(@NonNull AdapterDisplay.ViewDisplay holder, int position) {
         ModelNovel novel = novel_list.get(position);
+        try {
+            int imageResource = layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName());
+            if (imageResource != 0) {
+                holder.vImage_dDisplay_Cover.setImageResource(imageResource);
+            } else {
+                holder.vImage_dDisplay_Cover.setImageResource(R.drawable.hoahongdo);
+            }
+        } catch (Exception e) {
+            holder.vImage_dDisplay_Cover.setImageResource(R.drawable.hoahongdo);
+        }
 
-        holder.vImage_dDisplay_Cover.setImageResource(layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName()));
-        if(novel.getName().length() >= 40) holder.vText_dDisplay_Name.setText(novel.getName().substring(0, 47) + "...");
-        else holder.vText_dDisplay_Name.setText(novel.getName());
+        holder.vText_dDisplay_Name.setText(novel.getName());
     }
 
-    public interface OnItemClickListener
-    {
+    public interface OnItemClickListener {
         void onItemClick(ModelNovel novel);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener)
-    {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return novel_list.size();
     }
 
-    public class ViewDisplay extends RecyclerView.ViewHolder
-    {
+    public class ViewDisplay extends RecyclerView.ViewHolder {
         ImageView vImage_dDisplay_Cover;
         TextView vText_dDisplay_Name;
 
-        public ViewDisplay(@NonNull View view)
-        {
+        public ViewDisplay(@NonNull View view) {
             super(view);
 
             vImage_dDisplay_Cover = view.findViewById(R.id.vImage_dDisplay_Cover);
@@ -79,8 +78,7 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewDisp
 
             view.setOnClickListener(mini_view ->
             {
-                if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION)
-                {
+                if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
                     listener.onItemClick(novel_list.get(getAdapterPosition()));
                 }
             });

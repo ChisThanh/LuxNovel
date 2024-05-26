@@ -62,12 +62,27 @@
         android:text="@string/novel_description"
     />
 
+    <RatingBar
+        android:id="@+id/rb_DanhGiaTruyen"
+        android:layout_width="wrap_content"
+        android:layout_toEndOf="@id/vImage_dBanner_Cover"
+        android:layout_below="@id/vText_dBanner_Description"
+        android:layout_marginTop="10dp"
+        android:numStars="5"
+        android:progressBackgroundTint="#ACACA6"
+        android:progressTint="#ff0"
+        android:rating="0"
+        android:secondaryProgressTint="@color/black"
+        android:stepSize="0.5"
+        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/uButton_dBanner_Read"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/vImage_dBanner_Cover"
-        android:layout_below="@id/vText_dBanner_Description"
+        android:layout_below="@id/rb_DanhGiaTruyen"
         android:layout_marginTop="10dp"
         android:layout_marginStart="150dp"
         android:text="@string/read"

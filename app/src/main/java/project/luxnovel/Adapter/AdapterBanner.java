@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import project.luxnovel.Activity.ActivityRead;
 import project.luxnovel.Handler.HandlerAuthor;
 import project.luxnovel.Handler.HandlerCategory;
+import project.luxnovel.Handler.HandlerState;
 import project.luxnovel.Model.ModelAuthor;
 import project.luxnovel.Model.ModelCategory;
 import project.luxnovel.Model.ModelNovel;
@@ -50,9 +52,17 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
     {
         ModelNovel novel = novel_list.get(position);
 
-        holder.vImage_dBanner_Cover.setImageResource(layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName()));
-        if(novel.getName().length() >= 25) holder.vText_dBanner_Name.setText(novel.getName().substring(0, 22) + "...");
-        else holder.vText_dBanner_Name.setText(novel.getName());
+        try {
+            int imageResource = layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName());
+            if (imageResource != 0) {
+                holder.vImage_dBanner_Cover.setImageResource(imageResource);
+            } else {
+                holder.vImage_dBanner_Cover.setImageResource(R.drawable.hoahongdo);
+            }
+        } catch (Exception e) {
+            holder.vImage_dBanner_Cover.setImageResource(R.drawable.hoahongdo);
+        }
+        holder.vText_dBanner_Name.setText(novel.getName());
 
         Integer author_id = novel.getAuthor();
         //noinspection resource
@@ -75,6 +85,9 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
             intent.putExtra("novel_id", novel.getId());
             layout_inflater.getContext().startActivity(intent);
         });
+        HandlerState handlerState = new HandlerState(layout_inflater.getContext(), "Novel.db", null, 1);
+        float danhGiaTruyen= handlerState.danhGiaTruyen(novel.getId());
+        holder.rb_DanhGiaTruyen.setRating(danhGiaTruyen);
     }
 
     @Override
@@ -88,11 +101,13 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         ImageView vImage_dBanner_Cover;
         TextView vText_dBanner_Name, vText_dBanner_Author, vText_dBanner_Category, vText_dBanner_Description;
         Button uButton_dBanner_Read;
+        RatingBar rb_DanhGiaTruyen;
 
         public ViewBanner(@NonNull View view)
         {
             super(view);
 
+            rb_DanhGiaTruyen=view.findViewById(R.id.rb_DanhGiaTruyen);
             vImage_dBanner_Cover = view.findViewById(R.id.vImage_dBanner_Cover);
             vText_dBanner_Name = view.findViewById(R.id.vText_dBanner_Name);
             vText_dBanner_Author = view.findViewById(R.id.vText_dBanner_Author);

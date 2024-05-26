@@ -6,7 +6,7 @@ public class ModelState
     private Integer user;
     private Integer novel;
     private String state;
-    private Integer rating;
+    private int rating;
     private String comment;
     private String time;
 
@@ -50,12 +50,12 @@ public class ModelState
         this.state = state;
     }
 
-    public Integer getRating()
+    public int getRating()
     {
         return rating;
     }
 
-    public void setRating(Integer rating)
+    public void setRating(int rating)
     {
         this.rating = rating;
     }
@@ -80,7 +80,7 @@ public class ModelState
         this.time = time;
     }
 
-    public ModelState(Integer id, Integer user, Integer novel, String state, Integer rating, String comment, String time)
+    public ModelState(Integer id, Integer user, Integer novel, String state, int rating, String comment, String time)
     {
         this.id = id;
         this.user = user;

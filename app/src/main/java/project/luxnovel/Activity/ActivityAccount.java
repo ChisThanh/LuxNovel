@@ -45,10 +45,8 @@ public class ActivityAccount extends AppCompatActivity
         HelperAuthentication authentication = HelperAuthentication.getAuthentication();
         ModelUser user = authentication.getUser();
 
-        String login_in = user.getUsername();
-        Toast.makeText(ActivityAccount.this, "Login as " + login_in + "!", Toast.LENGTH_SHORT).show();
-
-        if (login_in == null || login_in.isEmpty())
+        int login_in = user.getId();
+        if (login_in == 0)
         {
             Toast.makeText(ActivityAccount.this, "No Login!", Toast.LENGTH_SHORT).show();
             finish();
@@ -58,7 +56,7 @@ public class ActivityAccount extends AppCompatActivity
         loadUserData(login_in);
     }
 
-    private void loadUserData(String login_username)
+    private void loadUserData(int login_username)
     {
         ModelUser user = user_handler.loadOneUser(login_username);
         if(user == null)

@@ -101,7 +101,7 @@ public class HandlerNovel extends SQLiteOpenHelper
     {
         ArrayList<ModelNovel> novel_list = new ArrayList<>();
         SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
-        Cursor cursor = database.rawQuery("select * from Novel where id_Category = ?", new String[] {String.valueOf(filter_category)});
+        Cursor cursor = database.rawQuery("select  * from Novel where id_Category = ?", new String[] {String.valueOf(filter_category)});
 
         if (cursor != null && cursor.moveToFirst())
         {

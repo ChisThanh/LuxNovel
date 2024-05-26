@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import project.luxnovel.ActivityMain;
 import project.luxnovel.Handler.HandlerUser;
 import project.luxnovel.Helper.HelperAuthentication;
 import project.luxnovel.Helper.HelperInterface;
@@ -27,7 +26,6 @@ public class ActivityLogin extends AppCompatActivity
     Button uButton_aLogin_Login;
     Intent intent;
     HandlerUser user_handler;
-
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
@@ -109,6 +107,7 @@ public class ActivityLogin extends AppCompatActivity
             while ((cursor.moveToNext())) {
                 String temp_username = cursor.getString(1);
                 String temp_password = cursor.getString(2);
+                int id=cursor.getInt(0);
 
                 if (temp_username.equals(input_username) && temp_password.equals(input_password)) {
                     String username = cursor.getString(1);
@@ -116,6 +115,8 @@ public class ActivityLogin extends AppCompatActivity
                     HelperAuthentication authentication = HelperAuthentication.getAuthentication();
                     authentication.setUser(new ModelUser(username));
 
+                    HelperAuthentication authentication1 = HelperAuthentication.getAuthentication();
+                    authentication1.setUser(new ModelUser(id));
                     if (uCheck_aLogin_Remember.isChecked()) {
                         editor.putBoolean("remember", true);
                         editor.putString("username", input_username);
@@ -130,7 +131,7 @@ public class ActivityLogin extends AppCompatActivity
 
                     cursor.close();
 
-                    Intent intent = new Intent(ActivityLogin.this, ActivityMain.class);
+                    Intent intent = new Intent(ActivityLogin.this, ActivityHome.class);
                     startActivity(intent);
 
                     break;

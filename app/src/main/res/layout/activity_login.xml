@@ -46,6 +46,7 @@
             android:ems="10"
             android:inputType="text"
 
+            android:text="nguyenvanchithanh"
             tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
         />
 
@@ -85,6 +86,7 @@
             android:ems="10"
             android:inputType="textPassword"
 
+            android:text="123"
             tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck"
         />
 

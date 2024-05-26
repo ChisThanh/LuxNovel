@@ -85,6 +85,10 @@ public class ModelUser
 
     }
 
+    public ModelUser(Integer id) {
+        this.id = id;
+    }
+
     public ModelUser(String username)
     {
         this.username = username;
