@@ -52,14 +52,20 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
     {
         ModelNovel novel = novel_list.get(position);
 
-        try {
+        try
+        {
             int imageResource = layout_inflater.getContext().getResources().getIdentifier(novel.getCover(), "drawable", layout_inflater.getContext().getPackageName());
-            if (imageResource != 0) {
+            if (imageResource != 0)
+            {
                 holder.vImage_dBanner_Cover.setImageResource(imageResource);
-            } else {
+            }
+            else
+            {
                 holder.vImage_dBanner_Cover.setImageResource(R.drawable.hoahongdo);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             holder.vImage_dBanner_Cover.setImageResource(R.drawable.hoahongdo);
         }
         holder.vText_dBanner_Name.setText(novel.getName());
@@ -85,9 +91,10 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
             intent.putExtra("novel_id", novel.getId());
             layout_inflater.getContext().startActivity(intent);
         });
+        //noinspection resource
         HandlerState handlerState = new HandlerState(layout_inflater.getContext(), "Novel.db", null, 1);
         float danhGiaTruyen= handlerState.danhGiaTruyen(novel.getId());
-        holder.rb_DanhGiaTruyen.setRating(danhGiaTruyen);
+        holder.uRating_dBanner_Rating.setRating(danhGiaTruyen);
     }
 
     @Override
@@ -101,13 +108,13 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         ImageView vImage_dBanner_Cover;
         TextView vText_dBanner_Name, vText_dBanner_Author, vText_dBanner_Category, vText_dBanner_Description;
         Button uButton_dBanner_Read;
-        RatingBar rb_DanhGiaTruyen;
+        RatingBar uRating_dBanner_Rating;
 
         public ViewBanner(@NonNull View view)
         {
             super(view);
 
-            rb_DanhGiaTruyen=view.findViewById(R.id.rb_DanhGiaTruyen);
+            uRating_dBanner_Rating=view.findViewById(R.id.uRating_dBanner_Rating);
             vImage_dBanner_Cover = view.findViewById(R.id.vImage_dBanner_Cover);
             vText_dBanner_Name = view.findViewById(R.id.vText_dBanner_Name);
             vText_dBanner_Author = view.findViewById(R.id.vText_dBanner_Author);

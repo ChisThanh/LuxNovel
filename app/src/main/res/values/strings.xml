@@ -59,6 +59,7 @@
     <string name="comment_rating">Comment Rating</string>
     <string name="comment_rating_number">0.0</string>
     <string name="comment_comment">Comment Comment</string>
+    <string name="comment_empty">There Is No Comment</string>
 
     <string name="chapter">Chapter</string>
     <string name="chapter_name">Chapter Name</string>

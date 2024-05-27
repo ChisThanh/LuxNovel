@@ -56,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:textColor="@color/hyperlink_blue"
                 android:text="@string/novel_author"
             />
 
@@ -80,6 +81,7 @@
                 android:id="@+id/vText_fNovel_Category"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/hyperlink_blue"
                 android:gravity="center"
                 android:text="@string/novel_category"
             />
@@ -136,7 +138,7 @@
             android:text="@string/chapter"
         />
 
-        <ListView
+        <project.luxnovel.Helper.HelperNonScroll
             android:id="@+id/vList_fNovel_Chapter"
             android:layout_width="match_parent"
             android:layout_height="250dp"
@@ -183,78 +185,84 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+        >
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="100dp"
+                android:layout_width="85dp"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Comment :" />
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:text="@string/comment"
+            />
 
             <EditText
-                android:id="@+id/txt_Comment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:id="@+id/uText_fNovel_Comment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:autofillHints="text"
+                android:background="@drawable/border"
                 android:ems="10"
-                android:hint="Enter Comment..."
-                android:inputType="text" />
+                android:hint="@string/comment"
+                android:inputType="text"
+                tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck,VisualLintTextFieldSize"
+            />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+        >
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="100dp"
+                android:layout_width="85dp"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Đánh giá :" />
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:text="@string/rating"
+            />
 
             <RatingBar
-                android:id="@+id/rb_DanhGia"
+                android:id="@+id/uRating_fNovel_Rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:numStars="5"
+                android:max="5"
                 android:progressBackgroundTint="#ACACA6"
                 android:progressTint="#ff0"
                 android:rating="0"
                 android:secondaryProgressTint="@color/black"
-                android:stepSize="1" />
+                android:stepSize="1"
+                style="?android:attr/ratingBarStyleIndicator"
+            />
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txt_NoComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Chưa có bình luận nào " />
-        </LinearLayout>
-
-        <LinearLayout
+        <Button
+            android:id="@+id/uButton_fNovel_Comment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:background="@drawable/border"
+            tools:ignore="VisualLintButtonSize"
+            android:text="@string/comment"
+        />
 
-            <Button
-                android:id="@+id/btn_SendComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Submit" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/uText_fNovel_Empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/comment_empty"
+        />
 
-        <ListView
+        <project.luxnovel.Helper.HelperNonScroll
             android:id="@+id/vList_fNovel_Comment"
             android:layout_width="match_parent"
             android:layout_height="250dp"

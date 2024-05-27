@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +31,7 @@ import project.luxnovel.Handler.HandlerChapter;
 import project.luxnovel.Handler.HandlerNovel;
 import project.luxnovel.Handler.HandlerState;
 import project.luxnovel.Helper.HelperAuthentication;
+import project.luxnovel.Helper.HelperNonScroll;
 import project.luxnovel.Model.ModelAuthor;
 import project.luxnovel.Model.ModelCategory;
 import project.luxnovel.Model.ModelChapter;
@@ -40,19 +40,17 @@ import project.luxnovel.Model.ModelState;
 import project.luxnovel.Model.ModelUser;
 import project.luxnovel.R;
 
-public class FragmentNovel extends Fragment {
+public class FragmentNovel extends Fragment
+{
     View view;
     ImageView vImage_fNovel_Cover;
-    TextView vText_fNovel_Name, vText_fNovel_Author, vText_fNovel_Category, vText_fNovel_State, vText_fNovel_Description, vText_fNovel_Rating;
-    ListView vList_fNovel_Chapter, vList_fNovel_Comment;
-
-    TextView txt_Comment, txt_NoComment;
-    Button btn_SendComment;
-
-    ModelNovel novel;
-    RatingBar rb_DanhGia;
+    TextView vText_fNovel_Name, vText_fNovel_Author, vText_fNovel_Category, vText_fNovel_State, vText_fNovel_Description, vText_fNovel_Rating, uText_fNovel_Comment, uText_fNovel_Empty;
+    HelperNonScroll vList_fNovel_Chapter, vList_fNovel_Comment;
+    RatingBar uRating_fNovel_Rating;
+    Button uButton_fNovel_Comment;
     ArrayList<ModelChapter> chapter_list;
     ArrayList<ModelState> comment_list;
+    ModelNovel novel;
 
     @Nullable
     @Override
@@ -78,18 +76,17 @@ public class FragmentNovel extends Fragment {
         vText_fNovel_State = view.findViewById(R.id.vText_fNovel_State);
         vText_fNovel_Description = view.findViewById(R.id.vText_fNovel_Description);
         vText_fNovel_Rating = view.findViewById(R.id.vText_fNovel_Rating);
+        uText_fNovel_Comment = view.findViewById(R.id.uText_fNovel_Comment);
+        uText_fNovel_Empty = view.findViewById(R.id.uText_fNovel_Empty);
         vList_fNovel_Chapter = view.findViewById(R.id.vList_fNovel_Chapter);
         vList_fNovel_Comment = view.findViewById(R.id.vList_fNovel_Comment);
-
-        txt_NoComment = view.findViewById(R.id.txt_NoComment);
-        txt_Comment = view.findViewById(R.id.txt_Comment);
-        btn_SendComment = view.findViewById(R.id.btn_SendComment);
-
-        rb_DanhGia = view.findViewById(R.id.rb_DanhGia);
+        uRating_fNovel_Rating = view.findViewById(R.id.uRating_fNovel_Rating);
+        uButton_fNovel_Comment = view.findViewById(R.id.uButton_fNovel_Comment);
     }
 
     @SuppressLint("DiscouragedApi")
-    private void addData() {
+    private void addData()
+    {
         //noinspection resource
         HandlerNovel novel_handler = new HandlerNovel(requireContext(), "Novel.db", null, 1);
         Bundle bundle = getArguments();
@@ -98,7 +95,8 @@ public class FragmentNovel extends Fragment {
             Integer novel_id = bundle.getInt("novel_id");
             novel = novel_handler.findNovel(novel_id);
 
-            if (novel != null) {
+            if (novel != null)
+            {
                 Integer author_id = novel.getAuthor();
                 //noinspection resource
                 HandlerAuthor author_hanlder = new HandlerAuthor(requireContext(), "Novel.db", null, 1);
@@ -115,7 +113,8 @@ public class FragmentNovel extends Fragment {
                 vText_fNovel_Category.setText(category.getName());
                 vText_fNovel_State.setText(novel.getState());
                 vText_fNovel_Description.setText(novel.getDescription());
-            } else new AlertDialog.Builder(requireContext(), R.style.Custom_AlertDialog)
+            }
+            else new AlertDialog.Builder(requireContext(), R.style.Custom_AlertDialog)
                     .setTitle("Empty").setMessage("There Is No Novel With That ID")
                     .setPositiveButton("OK", (dialog, number) ->
                     {
@@ -126,7 +125,8 @@ public class FragmentNovel extends Fragment {
         }
     }
 
-    private void addAdapters() {
+    private void addAdapters()
+    {
         //noinspection resource
         HandlerChapter chapter_hanlder = new HandlerChapter(requireContext(), "Novel.db", null, 1);
         chapter_list = chapter_hanlder.loadChapter(novel.getId());
@@ -135,18 +135,21 @@ public class FragmentNovel extends Fragment {
         loadAdapterComment();
     }
 
-    public void loadAdapterComment() {
+    public void loadAdapterComment()
+    {
+        //noinspection resource
         HandlerState handlerState = new HandlerState(requireContext(), "Novel.db", null, 1);
         comment_list = handlerState.loadState(novel.getId());
-        if (comment_list == null || comment_list.isEmpty()) {
-            // Hiển thị TextView thông báo khi không có bình luận
-            txt_NoComment.setVisibility(View.VISIBLE);
+        if (comment_list == null || comment_list.isEmpty())
+        {
+            uText_fNovel_Empty.setVisibility(View.VISIBLE);
             vList_fNovel_Comment.setVisibility(View.GONE);
-        } else {
+        }
+        else
+        {
             AdapterComment comment_adapter = new AdapterComment(requireActivity(), R.layout.adapter_comment, comment_list);
             vList_fNovel_Comment.setAdapter(comment_adapter);
-            // Ẩn TextView thông báo khi có bình luận
-            txt_NoComment.setVisibility(View.GONE);
+            uText_fNovel_Empty.setVisibility(View.GONE);
             vList_fNovel_Comment.setVisibility(View.VISIBLE);
         }
     }
@@ -170,7 +173,8 @@ public class FragmentNovel extends Fragment {
         HelperAuthentication authentication = HelperAuthentication.getAuthentication();
         ModelUser user = authentication.getUser();
 
-        if (user == null) {
+        if (user == null)
+        {
             Toast.makeText(getContext(), "No user is logged in!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -182,22 +186,22 @@ public class FragmentNovel extends Fragment {
         temp.setUser(login_in);
 
 
-        btn_SendComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int ratingValue = rb_DanhGia.getProgress();
-                temp.setRating(ratingValue);
-                HandlerState handlerState = new HandlerState(getContext(), "Novel.db", null, 1);
-                temp.setComment(txt_Comment.getText().toString());
-                handlerState.insertNewComment(temp);
+        uButton_fNovel_Comment.setOnClickListener(view ->
+        {
+            int ratingValue = uRating_fNovel_Rating.getProgress();
+            temp.setRating(ratingValue);
+            //noinspection resource
+            HandlerState handlerState = new HandlerState(getContext(), "Novel.db", null, 1);
+            temp.setComment(uText_fNovel_Comment.getText().toString());
+            handlerState.insertNewComment(temp);
 
-                loadAdapterComment();
-            }
+            loadAdapterComment();
         });
     }
 
 
-    private void loadChapter(Integer novel_id, Integer chapter_id) {
+    private void loadChapter(Integer novel_id, Integer chapter_id)
+    {
         FragmentChapter fragment = new FragmentChapter();
         Bundle bundle = new Bundle();
         bundle.putInt("novel_id", novel_id);

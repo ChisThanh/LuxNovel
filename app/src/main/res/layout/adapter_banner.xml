@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/vImage_dBanner_Cover"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_width="170dp"
+        android:layout_height="270dp"
         android:contentDescription="@string/image"
         android:scaleType="fitXY"
         tools:srcCompat="@tools:sample/avatars"
@@ -63,28 +63,32 @@
     />
 
     <RatingBar
-        android:id="@+id/rb_DanhGiaTruyen"
-        android:layout_width="wrap_content"
+        android:id="@+id/uRating_dBanner_Rating"
         android:layout_toEndOf="@id/vImage_dBanner_Cover"
         android:layout_below="@id/vText_dBanner_Description"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:numStars="5"
+        android:max="5"
         android:progressBackgroundTint="#ACACA6"
         android:progressTint="#ff0"
         android:rating="0"
         android:secondaryProgressTint="@color/black"
-        android:stepSize="0.5"
-        android:layout_marginStart="10dp"
-        android:layout_height="wrap_content" />
+        android:stepSize="1"
+        style="?android:attr/ratingBarStyleIndicator"
+    />
 
     <Button
         android:id="@+id/uButton_dBanner_Read"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/vImage_dBanner_Cover"
-        android:layout_below="@id/rb_DanhGiaTruyen"
+        android:layout_below="@id/uRating_dBanner_Rating"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="70dp"
         android:text="@string/read"
         android:textColor="@color/black"
         android:background="@drawable/border"
