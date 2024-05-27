@@ -96,6 +96,73 @@ public class HandlerNovel extends SQLiteOpenHelper
         database.close();
         return novel;
     }
+    public ArrayList<ModelNovel> loadNovelNew()
+    {
+        ArrayList<ModelNovel> novel_list = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path,null,SQLiteDatabase.CREATE_IF_NECESSARY);
+        Cursor cursor = database.rawQuery("SELECT Novel.id_Novel,Novel_name,Novel.id_Author,Novel.id_Category,Novel.Describe,Novel_state,Novel_img\n" +
+                "FROM Novel JOIN Chapter\n" +
+                "ON Novel.id_Novel=Chapter.id_Novel\n" +
+                "GROUP BY Novel_name\n" +
+                "order by dateSubmiteted DESC\n" +
+                "LIMIT 5;",null);
+        cursor.moveToFirst();
+        do
+        {
+            ModelNovel novel = new ModelNovel();
+
+            novel.setId(cursor.getInt(0));
+            novel.setName(cursor.getString(1));
+            novel.setAuthor(cursor.getInt(2));
+            novel.setCategory(cursor.getInt(3));
+            novel.setDescription(cursor.getString(4));
+            novel.setState(cursor.getString(5));
+            novel.setCover(cursor.getString(6));
+
+            novel_list.add(novel);
+        }
+        while(cursor.moveToNext());
+
+        cursor.close();
+        database.close();
+
+        return novel_list;
+    }
+    public ArrayList<ModelNovel> loadNovelFavorite() {
+        ArrayList<ModelNovel> novelList = new ArrayList<>();
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+
+        // Truy vấn SQL để lấy dữ liệu
+        Cursor cursor = database.rawQuery(
+                "SELECT n.id_Novel, n.Novel_name, n.id_Author, n.id_Category, n.Describe, n.Novel_state, n.Novel_img, AVG(r.rating) AS avg_rating " +
+                        "FROM Novel n " +
+                        "JOIN readState r ON n.id_Novel = r.id_Novel " +
+                        "GROUP BY n.id_Novel, n.Novel_name " +
+                        "ORDER BY avg_rating DESC " +
+                        "LIMIT 5;", null);
+
+        // Kiểm tra xem con trỏ có chứa dữ liệu hay không
+        if (cursor.moveToFirst()) {
+            do {
+
+                ModelNovel novel = new ModelNovel();
+                novel.setId(cursor.getInt(0));
+                novel.setName(cursor.getString(1));
+                novel.setAuthor(cursor.getInt(2));
+                novel.setCategory(cursor.getInt(3));
+                novel.setDescription(cursor.getString(4));
+                novel.setState(cursor.getString(5));
+                novel.setCover(cursor.getString(6));
+                novelList.add(novel);
+            } while (cursor.moveToNext());
+        }
+
+        // Đóng con trỏ và cơ sở dữ liệu
+        cursor.close();
+        database.close();
+
+        return novelList;
+    }
 
     public ArrayList<ModelNovel> filterNovelCategory(Integer filter_category)
     {

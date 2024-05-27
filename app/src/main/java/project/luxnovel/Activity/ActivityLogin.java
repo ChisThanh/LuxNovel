@@ -20,14 +20,13 @@ import project.luxnovel.R;
 
 public class ActivityLogin extends AppCompatActivity
 {
-    EditText uText_aLogin_Username, uText_aLogin_Password;
-    TextView vText_aLogin_UsernameAnnotation, vText_aLogin_PasswordAnnotation, vText_aLogin_Recover, vText_aLogin_Register;
-    CheckBox uCheck_aLogin_Remember;
-    Button uButton_aLogin_Login;
-    Intent intent;
-    HandlerUser user_handler;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    private EditText uText_aLogin_Username, uText_aLogin_Password;
+    private TextView vText_aLogin_UsernameAnnotation, vText_aLogin_PasswordAnnotation, vText_aLogin_Recover, vText_aLogin_Register;
+    private CheckBox uCheck_aLogin_Remember;
+    private Button uButton_aLogin_Login;
+    private HandlerUser user_handler;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +38,7 @@ public class ActivityLogin extends AppCompatActivity
 
         sharedPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
         addControls();
 
         vText_aLogin_UsernameAnnotation.setText("");
@@ -48,6 +48,7 @@ public class ActivityLogin extends AppCompatActivity
         addEvents();
         HelperInterface.toggleVisibility(uText_aLogin_Password);
     }
+
     private void loadLoginData() {
         boolean isRemembered = sharedPreferences.getBoolean("remember", false);
         if (isRemembered) {
@@ -57,9 +58,26 @@ public class ActivityLogin extends AppCompatActivity
             uText_aLogin_Password.setText(savedPassword);
             uCheck_aLogin_Remember.setChecked(true);
         }
+        else
+        {
+            editor.clear();
+            editor.apply();
+        }
     }
-    private void addControls()
-    {
+    //them
+    private boolean loadRemember() {
+        boolean isRemembered = sharedPreferences.getBoolean("remember", false);
+        if (isRemembered) {
+            String savedUsername = sharedPreferences.getString("username", "");
+            String savedPassword = sharedPreferences.getString("password", "");
+            uText_aLogin_Username.setText(savedUsername);
+            uText_aLogin_Password.setText(savedPassword);
+            uCheck_aLogin_Remember.setChecked(true);
+            return true;
+        }
+        return false;
+    }
+    private void addControls() {
         uText_aLogin_Username = findViewById(R.id.uText_aLogin_Username);
         uText_aLogin_Password = findViewById(R.id.uText_aLogin_Password);
         vText_aLogin_UsernameAnnotation = findViewById(R.id.vText_aLogin_UsernameAnnotation);
@@ -72,20 +90,17 @@ public class ActivityLogin extends AppCompatActivity
 
     @SuppressLint("SetTextI18n")
     private void addEvents() {
-        vText_aLogin_Recover.setOnClickListener(view ->
-        {
-            intent = new Intent(ActivityLogin.this, ActivityRecover.class);
+        vText_aLogin_Recover.setOnClickListener(view -> {
+            Intent intent = new Intent(ActivityLogin.this, ActivityRecover.class);
             startActivity(intent);
         });
 
-        vText_aLogin_Register.setOnClickListener(view ->
-        {
-            intent = new Intent(ActivityLogin.this, ActivityRegister.class);
+        vText_aLogin_Register.setOnClickListener(view -> {
+            Intent intent = new Intent(ActivityLogin.this, ActivityRegister.class);
             startActivity(intent);
         });
 
-        uButton_aLogin_Login.setOnClickListener(view ->
-        {
+        uButton_aLogin_Login.setOnClickListener(view -> {
             String input_username = uText_aLogin_Username.getText().toString();
             String input_password = uText_aLogin_Password.getText().toString();
 
@@ -94,57 +109,58 @@ public class ActivityLogin extends AppCompatActivity
             if (input_username.isEmpty()) {
                 vText_aLogin_UsernameAnnotation.setText("Missing");
                 error = true;
+            } else {
+                vText_aLogin_UsernameAnnotation.setText("");
             }
+
             if (input_password.isEmpty()) {
                 vText_aLogin_PasswordAnnotation.setText("Missing");
                 error = true;
+            } else {
+                vText_aLogin_PasswordAnnotation.setText("");
             }
 
             if (error) return;
 
             Cursor cursor = user_handler.getCursorUser();
             cursor.moveToFirst();
-            while ((cursor.moveToNext())) {
+            boolean loginSuccessful = false;
+
+            while (cursor.moveToNext()) {
                 String temp_username = cursor.getString(1);
                 String temp_password = cursor.getString(2);
-                int id=cursor.getInt(0);
+                int id = cursor.getInt(0);
 
                 if (temp_username.equals(input_username) && temp_password.equals(input_password)) {
-                    String username = cursor.getString(1);
+                    ModelUser user = new ModelUser(id);
+                    HelperAuthentication.getAuthentication().setUser(user);
 
-                    HelperAuthentication authentication = HelperAuthentication.getAuthentication();
-                    authentication.setUser(new ModelUser(username));
-
-                    HelperAuthentication authentication1 = HelperAuthentication.getAuthentication();
-                    authentication1.setUser(new ModelUser(id));
                     if (uCheck_aLogin_Remember.isChecked()) {
                         editor.putBoolean("remember", true);
                         editor.putString("username", input_username);
                         editor.putString("password", input_password);
-                        editor.apply();
                     } else {
                         editor.putBoolean("remember", false);
                         editor.remove("username");
                         editor.remove("password");
-                        editor.apply();
                     }
+                    editor.apply();
 
                     cursor.close();
 
                     Intent intent = new Intent(ActivityLogin.this, ActivityHome.class);
                     startActivity(intent);
-
+                    loginSuccessful = true;
                     break;
                 }
             }
 
-            if (cursor.isAfterLast()) {
+            if (!loginSuccessful) {
                 vText_aLogin_UsernameAnnotation.setText("Wrong Username");
                 vText_aLogin_PasswordAnnotation.setText("Wrong Password");
             }
+
             cursor.close();
         });
     }
 }
-
-

@@ -80,8 +80,8 @@ public class ActivityHome extends AppCompatActivity
         continue_novel.addAll(novel_handler.loadNovel());
         picks_novel.addAll(novel_handler.loadNovel());
         top_novel.addAll(novel_handler.loadNovel());
-        favorite_novel.addAll(novel_handler.loadNovel());
-        new_novel.addAll(novel_handler.loadNovel());
+        favorite_novel.addAll(novel_handler.loadNovelFavorite());
+        new_novel.addAll(novel_handler.loadNovelNew());
     }
 
     private void addAdapter(RecyclerView recycler_view, ArrayList<ModelNovel> novel_list)
@@ -99,3 +99,9 @@ public class ActivityHome extends AppCompatActivity
 
     }
 }
+
+
+
+
+
+
