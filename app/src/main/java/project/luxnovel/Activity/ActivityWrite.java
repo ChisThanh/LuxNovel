@@ -30,7 +30,6 @@ public class ActivityWrite extends AppCompatActivity {
     DrawerLayout lDrawer_aWrite_Drawer;
     Toolbar uToolbar_aWrite_Toolbar;
     NavigationView vNavigation_aWrite_Navigation;
-    TextView vText_aWrite_UsernameAnnotation, vText_aWrite_EmailAnnotation;
     EditText uText_aWrite_Username, uText_aWrite_Authorname, uText_aWrite_Email, uText_aWrite_Novelname, uText_aWrite_Chaptername, uText_aWrite_Content;
     HandlerUser user_handler;
     Button uButton_aWrite_Send;
@@ -81,8 +80,6 @@ public class ActivityWrite extends AppCompatActivity {
         uText_aWrite_Chaptername = findViewById(R.id.uText_aWrite_Chapter);
         uText_aWrite_Content = findViewById(R.id.uText_aWrite_Content);
         vNavigation_aWrite_Navigation = findViewById(R.id.vNavigation_aWrite_Navigation);
-        vText_aWrite_EmailAnnotation = findViewById(R.id.vText_aWrite_EmailAnnotation);
-        vText_aWrite_UsernameAnnotation = findViewById(R.id.vText_aWrite_UsernameAnnotation);
         uButton_aWrite_Send = findViewById(R.id.uButton_aWrite_Send);
     }
 
@@ -110,24 +107,7 @@ public class ActivityWrite extends AppCompatActivity {
                 String input_chaptername=uText_aWrite_Chaptername.getText().toString();
                 String input_content=uText_aWrite_Content.getText().toString();
                 //ModelUser user = RepairAccount();
-
-                if(input_username.isEmpty())
-                {
-                    vText_aWrite_UsernameAnnotation.setText("Missing");
-                    error = true;
-                }
-
-                if(input_email.isEmpty())
-                {
-                    vText_aWrite_EmailAnnotation.setText("Missing");
-                    error = true;
-                }
-                else if (!isValidEmail(input_email))
-                {
-                    vText_aWrite_EmailAnnotation.setText("Wrong Email Format");
-                    error = true;
-                }
-
+                
                 if (!error) {
                 sendEmail(input_username, input_authorname, input_email, input_novelname, input_chaptername, input_content);
             }

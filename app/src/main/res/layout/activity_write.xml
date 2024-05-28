@@ -73,19 +73,6 @@
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck" />
 
-            <TextView
-                android:id="@+id/vText_aWrite_UsernameAnnotation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/username_annotation"
-                android:textColor="@color/error_red"
-                android:textSize="12sp"
-                tools:ignore="TextContrastCheck" />
-
             <EditText
                 android:id="@+id/uText_aWrite_Authorname"
 
@@ -107,18 +94,6 @@
                 android:textSize="20sp"
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck" />
-            <!--            <TextView-->
-            <!--                android:id="@+id/vText_aWrite_AuthornameAnnotation"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginTop="5dp"-->
-            <!--                android:layout_marginStart="10dp"-->
-            <!--                android:layout_marginEnd="10dp"-->
-            <!--                android:layout_gravity="end"-->
-            <!--                android:textSize="12sp"-->
-            <!--                android:textColor="@color/error_red"-->
-            <!--                android:text="@string/password_annotation"-->
-            <!--                tools:ignore="TextContrastCheck" />-->
 
             <EditText
                 android:id="@+id/uText_aWrite_Email"
@@ -140,19 +115,6 @@
                 android:textSize="20sp"
 
                 tools:ignore="LabelFor,VisualLintTextFieldSize,TextContrastCheck,TouchTargetSizeCheck" />
-
-            <TextView
-                android:id="@+id/vText_aWrite_EmailAnnotation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:text="@string/email_annotation"
-                android:textColor="@color/error_red"
-                android:textSize="12sp"
-                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/uText_aWrite_Novelname"
