@@ -15,16 +15,18 @@
         android:theme="@style/Theme.LuxNovel"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Activity.ActivityWrite"
+            android:exported="false" />
         <activity
             android:name=".Activity.ActivityLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Activity.ActivityRegister" />
         <activity android:name=".Activity.ActivityRecover" />
         <activity android:name=".Activity.ActivityHome" />
@@ -32,12 +34,10 @@
         <activity android:name=".Activity.ActivitySearch" />
         <activity android:name=".Activity.ActivityRead" />
         <activity android:name=".Activity.ActivityReadAPI" />
-        <activity android:name=".Activity.ActivityWrite" />
         <activity android:name=".Activity.ActivityApi" />
         <activity android:name=".Activity.ActivityAccount" />
         <activity android:name=".Activity.ActivitySettings" />
         <activity android:name=".Activity.ActivityAuthor" />
-
     </application>
 
 </manifest>

@@ -29,6 +29,7 @@
     <string name="password_annotation">Password Annotation</string>
     <string name="email_annotation">Email Annotation</string>
     <string name="login">Login</string>
+    <string name="send">Send</string>
     <string name="register">Register</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="register_question">Create an Account</string>

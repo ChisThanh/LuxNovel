@@ -75,7 +75,7 @@ public class ActivityAccount extends AppCompatActivity
 
     private void addControls()
     {
-        lDrawer_aAccount_Drawer = findViewById(R.id.lDrawer_aAccount_Drawer);
+        lDrawer_aAccount_Drawer = findViewById(R.id.lDrawer_aWrite_Drawer);
         uToolbar_aAccount_Toolbar = findViewById(R.id.uToolbar_aAccount_Toolbar);
         uText_aAccount_Username = findViewById(R.id.uText_aAccount_Username);
         uText_aAccount_Password = findViewById(R.id.uText_aAccount_Password);
