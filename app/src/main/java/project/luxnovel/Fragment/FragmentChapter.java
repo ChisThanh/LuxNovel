@@ -42,7 +42,7 @@ public class FragmentChapter extends Fragment
     Integer chapter_position;
     String type = null;
     RequestQueue requestQueue;
-    String url = "http://172.28.240.1:8080/";
+    String url = "http://14.225.198.134:8080/";
     Integer chapter_id = -1;
     @Nullable
     @Override

@@ -44,7 +44,7 @@ public class ActivityApi extends AppCompatActivity
     ArrayList<ModelNovel> novel_list = new ArrayList<>();
     AdapterDisplayAPI display_adapter;
     RequestQueue requestQueue;
-    String url = "http://172.28.240.1:8080/";
+    String url = "http://14.225.198.134:8080/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -62,7 +62,7 @@ public class FragmentNovel extends Fragment {
     ModelNovel novel;
     String type = null;
     RequestQueue requestQueue;
-    String url = "http://172.28.240.1:8080/";
+    String url = "http://14.225.198.134:8080/";
 
     @Nullable
     @Override
