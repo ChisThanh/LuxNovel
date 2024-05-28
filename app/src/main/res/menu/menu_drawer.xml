@@ -36,12 +36,7 @@
                 android:icon="@drawable/read"
                 android:title="@string/read"
             />
-            <item
-                android:id="@+id/iMenu_mDrawer_Write"
-                app:showAsAction="ifRoom"
-                android:icon="@drawable/write"
-                android:title="@string/write"
-            />
+
             <item
                 android:id="@+id/iMenu_mDrawer_Api"
                 app:showAsAction="ifRoom"
@@ -59,12 +54,7 @@
                 android:icon="@drawable/account"
                 android:title="@string/account"
             />
-            <item
-                android:id="@+id/iMenu_mDrawer_Settings"
-                app:showAsAction="ifRoom"
-                android:icon="@drawable/settings"
-                android:title="@string/settings"
-            />
+
             <item
                 android:id="@+id/iMenu_mDrawer_Logout"
                 app:showAsAction="ifRoom"

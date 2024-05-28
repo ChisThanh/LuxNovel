@@ -1,5 +1,6 @@
 package project.luxnovel.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,13 +10,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
-import project.luxnovel.Fragment.FragmentChapter;
 import project.luxnovel.Fragment.FragmentNovel;
 import project.luxnovel.Helper.HelperInterface;
 import project.luxnovel.R;
@@ -29,6 +28,9 @@ public class ActivityRead extends AppCompatActivity
 
     static final String PREFS_NAME = "novel_shared_preferences";
     static final String KEY_CURRENT_ID = "shared_id";
+    static final String KEY_CURRENT_TYPE = "type";
+    String type = null;
+    int _id = -99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,13 +42,15 @@ public class ActivityRead extends AppCompatActivity
         addDrawer();
 
         Intent intent = getIntent();
-        if (intent != null && intent.hasExtra("novel_id"))
-        {
-            int id = intent.getIntExtra("novel_id", -1);
-            if (id != -1)
-            {
-                saveSharedPreferences(id);
-                loadNovel(id);
+        if (intent != null && intent.hasExtra("novel_id")) {
+            if (intent.hasExtra("type")) {
+                type = intent.getStringExtra("type");
+            }
+            _id = intent.getIntExtra("novel_id", -1);
+            if (_id != -1) {
+                clearSharedPreferences();
+                saveSharedPreferences(_id);
+                loadNovel(_id);
                 return;
             }
         }
@@ -60,13 +64,30 @@ public class ActivityRead extends AppCompatActivity
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(KEY_CURRENT_ID, id);
+        if (type != null) {
+            editor.putString(KEY_CURRENT_TYPE, type);
+        }
         editor.apply();
     }
 
+    @SuppressLint("CommitPrefEdits")
     private int getSharedPreferences()
     {
         SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        try {
+            type = preferences.getString(KEY_CURRENT_TYPE, null);
+        } catch (Exception e) {
+            type = null;
+        }
         return preferences.getInt(KEY_CURRENT_ID, -1);
+    }
+    private void clearSharedPreferences()
+    {
+        SharedPreferences preferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove(KEY_CURRENT_TYPE);
+        editor.apply();
+        editor.apply();
     }
 
     private void addControls()
@@ -90,6 +111,10 @@ public class ActivityRead extends AppCompatActivity
         FragmentNovel fragment = new FragmentNovel();
         Bundle bundle = new Bundle();
         bundle.putInt("novel_id", novel_id);
+        if (type != null) {
+            bundle.putString("type", "api");
+        }
+
         fragment.setArguments(bundle);
 
         FragmentManager fragment_manager = getSupportFragmentManager();

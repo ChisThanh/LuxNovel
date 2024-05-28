@@ -32,6 +32,7 @@ import project.luxnovel.Helper.HelperInterface;
 import project.luxnovel.Model.ModelCategory;
 import project.luxnovel.Model.ModelNovel;
 import project.luxnovel.Model.ModelNovelAPI;
+import project.luxnovel.Model.ModelUser;
 import project.luxnovel.R;
 
 public class ActivityApi extends AppCompatActivity
@@ -43,7 +44,7 @@ public class ActivityApi extends AppCompatActivity
     ArrayList<ModelNovel> novel_list = new ArrayList<>();
     AdapterDisplayAPI display_adapter;
     RequestQueue requestQueue;
-    String url = "http://172.17.176.1:8080/";
+    String url = "http://172.28.240.1:8080/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -106,11 +107,9 @@ public class ActivityApi extends AppCompatActivity
             JSONObject obj = objArray.getJSONObject(i);
             Integer id_Novel = obj.getInt("id_Novel");
             String Novel_name = obj.getString("Novel_name");
-            String Name_Author = obj.getString("Name_Author");
-            String Name_Category = obj.getString("Name_Category");
             String Describe = obj.getString("Describe");
             String Novel_img = url + obj.getString("Novel_img") ;
-            ModelNovelAPI a = new ModelNovelAPI(id_Novel, Novel_name, Describe, Name_Author, Name_Category, Novel_img);
+            ModelNovel a = new ModelNovel(id_Novel, Novel_name, 0, 0, Describe, null, Novel_img);
             novel_list.add(a);
         }
         addAdapter();
@@ -122,6 +121,7 @@ public class ActivityApi extends AppCompatActivity
         {
             Intent intent = new Intent(ActivityApi.this, ActivityRead.class);
             intent.putExtra("novel_id", novel.getId());
+            intent.putExtra("type", "api");
             startActivity(intent);
         });
     }

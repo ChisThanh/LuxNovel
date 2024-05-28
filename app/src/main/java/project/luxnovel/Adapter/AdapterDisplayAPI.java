@@ -48,8 +48,7 @@ public class AdapterDisplayAPI extends RecyclerView.Adapter<AdapterDisplayAPI.Vi
 
         Picasso.with(layout_inflater.getContext()).load(novel.getCover()).into(holder.vImage_dDisplay_Cover);
 
-        if(novel.getName().length() >= 40) holder.vText_dDisplay_Name.setText(novel.getName().substring(0, 47) + "...");
-        else holder.vText_dDisplay_Name.setText(novel.getName());
+        holder.vText_dDisplay_Name.setText(novel.getName());
     }
 
     public interface OnItemClickListener

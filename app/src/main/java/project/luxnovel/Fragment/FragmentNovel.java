@@ -3,6 +3,7 @@ package project.luxnovel.Fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -40,8 +50,7 @@ import project.luxnovel.Model.ModelState;
 import project.luxnovel.Model.ModelUser;
 import project.luxnovel.R;
 
-public class FragmentNovel extends Fragment
-{
+public class FragmentNovel extends Fragment {
     View view;
     ImageView vImage_fNovel_Cover;
     TextView vText_fNovel_Name, vText_fNovel_Author, vText_fNovel_Category, vText_fNovel_State, vText_fNovel_Description, vText_fNovel_Rating, uText_fNovel_Comment, uText_fNovel_Empty;
@@ -51,6 +60,9 @@ public class FragmentNovel extends Fragment
     ArrayList<ModelChapter> chapter_list;
     ArrayList<ModelState> comment_list;
     ModelNovel novel;
+    String type = null;
+    RequestQueue requestQueue;
+    String url = "http://172.28.240.1:8080/";
 
     @Nullable
     @Override
@@ -60,10 +72,16 @@ public class FragmentNovel extends Fragment
         chapter_list = new ArrayList<>();
         comment_list = new ArrayList<>();
 
+        requestQueue = Volley.newRequestQueue(getContext());
+
         addControls();
         addData();
-        addAdapters();
-        addEvents();
+        if (type != null)
+            getAllDataChapter(url + "api/chapter/" + novel.getId());
+        else {
+            addAdapters();
+            addEvents();
+        }
 
         return view;
     }
@@ -93,6 +111,12 @@ public class FragmentNovel extends Fragment
 
         if (bundle != null) {
             Integer novel_id = bundle.getInt("novel_id");
+            try {
+                type = bundle.getString("type");
+            } catch (Exception e) {
+                type = null;
+            }
+
             novel = novel_handler.findNovel(novel_id);
 
             if (novel != null)
@@ -125,8 +149,44 @@ public class FragmentNovel extends Fragment
         }
     }
 
-    private void addAdapters()
-    {
+    public void getAllDataChapter(String url) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    try {
+                        if (response != null && !response.isEmpty()) {
+                            parseJsonData(response);
+                        } else {
+                            Toast.makeText(getContext(), "Empty response", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        Toast.makeText(getContext(), "Error while parsing JSON: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("JSON", e.toString());
+                    }
+                },
+                error -> {
+                    Toast.makeText(getContext(), "Volley error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("Volley Error", error.toString());
+                });
+        requestQueue.add(stringRequest);
+    }
+
+    public void parseJsonData(String response) throws JSONException {
+        JSONArray objArray = new JSONArray(response);
+        for (int i = 0; i < objArray.length(); i++) {
+            JSONObject obj = objArray.getJSONObject(i);
+            Integer id = obj.getInt("id_Chapter");
+            String name = obj.getString("Chapter_name");
+            String date = obj.getString("dateSubmitted");
+            ModelChapter a = new ModelChapter(id, 0, id, name + "--api", null, date);
+            chapter_list.add(a);
+        }
+        AdapterChapter chapter_adapter = new AdapterChapter(requireActivity(), R.layout.adapter_chapter, chapter_list);
+        vList_fNovel_Chapter.setAdapter(chapter_adapter);
+        loadAdapterComment();
+        addEvents();
+    }
+
+    private void addAdapters() {
         //noinspection resource
         HandlerChapter chapter_hanlder = new HandlerChapter(requireContext(), "Novel.db", null, 1);
         chapter_list = chapter_hanlder.loadChapter(novel.getId());
@@ -155,7 +215,8 @@ public class FragmentNovel extends Fragment
     }
 
     private void addEvents() {
-        vList_fNovel_Chapter.setOnItemClickListener((adapter_view, view, position, id) -> loadChapter(novel.getId(), chapter_list.get(position).getId()));
+        vList_fNovel_Chapter.setOnItemClickListener((adapter_view, view, position, id) ->
+                loadChapter(novel.getId(), chapter_list.get(position).getId()));
 
         vText_fNovel_Author.setOnClickListener(view ->
         {
@@ -206,6 +267,7 @@ public class FragmentNovel extends Fragment
         Bundle bundle = new Bundle();
         bundle.putInt("novel_id", novel_id);
         bundle.putInt("chapter_id", chapter_id);
+        bundle.putString("type", type);
         fragment.setArguments(bundle);
 
         FragmentManager fragment_manager = getParentFragmentManager();

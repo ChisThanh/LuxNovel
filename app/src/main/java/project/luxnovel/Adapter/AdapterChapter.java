@@ -13,14 +13,12 @@ import java.util.ArrayList;
 import project.luxnovel.Model.ModelChapter;
 import project.luxnovel.R;
 
-public class AdapterChapter extends BaseAdapter
-{
+public class AdapterChapter extends BaseAdapter {
     LayoutInflater layout_inflater;
     Integer layout;
     ArrayList<ModelChapter> chapter_list;
 
-    public AdapterChapter(Activity activity, Integer layout, ArrayList<ModelChapter> chapter_list)
-    {
+    public AdapterChapter(Activity activity, Integer layout, ArrayList<ModelChapter> chapter_list) {
         layout_inflater = activity.getLayoutInflater();
         this.layout = layout;
         this.chapter_list = chapter_list;
@@ -43,15 +41,13 @@ public class AdapterChapter extends BaseAdapter
 
     @SuppressLint("SetTextI18n")
     @Override
-    public View getView(int position, View view, ViewGroup view_group)
-    {
+    public View getView(int position, View view, ViewGroup view_group) {
         ModelChapter chapter = chapter_list.get(position);
         @SuppressLint("ViewHolder") View item_view = layout_inflater.inflate(layout, null, false);
 
         TextView vText_dChapter_Name = item_view.findViewById(R.id.vText_dChapter_Name);
-        if(chapter.getName().length() >= 40) vText_dChapter_Name.setText(chapter.getName().substring(10, 37) + "...");
-        else if(chapter.getName().length() <= 10) vText_dChapter_Name.setText(chapter.getName());
-        else vText_dChapter_Name.setText(chapter.getName().substring(10));
+        vText_dChapter_Name.setText(chapter.getName());
+
 
         TextView vText_dChapter_Serial = item_view.findViewById(R.id.vText_dChapter_Serial);
         vText_dChapter_Serial.setText("Chapter: " + chapter.getSerial());
