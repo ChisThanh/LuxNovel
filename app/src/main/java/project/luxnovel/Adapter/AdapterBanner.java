@@ -14,6 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import project.luxnovel.Activity.ActivityRead;
@@ -94,7 +96,11 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
         //noinspection resource
         HandlerState handlerState = new HandlerState(layout_inflater.getContext(), "Novel.db", null, 1);
         float danhGiaTruyen= handlerState.danhGiaTruyen(novel.getId());
-        holder.uRating_dBanner_Rating.setRating(danhGiaTruyen);
+        BigDecimal bd = new BigDecimal(Float.toString(danhGiaTruyen));
+        bd = bd.setScale(1, RoundingMode.HALF_UP); // Làm tròn đến 1 chữ số thập phân
+        float danhgia = bd.floatValue();
+        holder.vRating.setText(String.valueOf(danhgia));
+        holder.imageView.setImageResource(R.drawable.star);
     }
 
     @Override
@@ -105,16 +111,18 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewBanner
 
     public static class ViewBanner extends RecyclerView.ViewHolder
     {
-        ImageView vImage_dBanner_Cover;
-        TextView vText_dBanner_Name, vText_dBanner_Author, vText_dBanner_Category, vText_dBanner_Description;
+        ImageView vImage_dBanner_Cover,imageView;
+
+        TextView vText_dBanner_Name, vText_dBanner_Author, vText_dBanner_Category, vText_dBanner_Description,vRating;
         Button uButton_dBanner_Read;
-        RatingBar uRating_dBanner_Rating;
+
 
         public ViewBanner(@NonNull View view)
         {
             super(view);
+            vRating=view.findViewById(R.id.vRating);
+            imageView=view.findViewById(R.id.imageView);
 
-            uRating_dBanner_Rating=view.findViewById(R.id.uRating_dBanner_Rating);
             vImage_dBanner_Cover = view.findViewById(R.id.vImage_dBanner_Cover);
             vText_dBanner_Name = view.findViewById(R.id.vText_dBanner_Name);
             vText_dBanner_Author = view.findViewById(R.id.vText_dBanner_Author);

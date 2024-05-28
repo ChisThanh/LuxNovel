@@ -79,7 +79,7 @@ public class ActivityHome extends AppCompatActivity
         HandlerNovel novel_handler = new HandlerNovel(ActivityHome.this, "Novel.db", null, 1);
         continue_novel.addAll(novel_handler.loadNovel());
         picks_novel.addAll(novel_handler.loadNovel());
-        top_novel.addAll(novel_handler.loadNovel());
+        top_novel.addAll(novel_handler.loadNovelFavorite());
         favorite_novel.addAll(novel_handler.loadNovelFavorite());
         new_novel.addAll(novel_handler.loadNovelNew());
     }

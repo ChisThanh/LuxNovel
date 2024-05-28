@@ -7,13 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="vertical"
->
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-    >
+        >
 
         <ImageView
             android:id="@+id/vImage_fNovel_Cover"
@@ -22,7 +22,7 @@
             android:contentDescription="@string/image"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars"
-        />
+            />
 
         <TextView
             android:id="@+id/vText_fNovel_Name"
@@ -33,7 +33,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:text="@string/novel_name"
-        />
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
-        >
+            >
 
             <TextView
                 android:layout_width="85dp"
@@ -49,7 +49,7 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:text="@string/author"
-            />
+                />
 
             <TextView
                 android:id="@+id/vText_fNovel_Author"
@@ -58,7 +58,7 @@
                 android:gravity="center"
                 android:textColor="@color/hyperlink_blue"
                 android:text="@string/novel_author"
-            />
+                />
 
         </LinearLayout>
 
@@ -67,7 +67,7 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:orientation="horizontal"
-        >
+            >
 
             <TextView
                 android:layout_width="85dp"
@@ -75,7 +75,7 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:text="@string/category"
-            />
+                />
 
             <TextView
                 android:id="@+id/vText_fNovel_Category"
@@ -84,7 +84,7 @@
                 android:textColor="@color/hyperlink_blue"
                 android:gravity="center"
                 android:text="@string/novel_category"
-            />
+                />
 
         </LinearLayout>
 
@@ -93,7 +93,7 @@
             android:layout_height="40dp"
             android:gravity="center"
             android:orientation="horizontal"
-        >
+            >
 
             <TextView
                 android:layout_width="85dp"
@@ -101,7 +101,7 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:text="@string/state"
-            />
+                />
 
             <TextView
                 android:id="@+id/vText_fNovel_State"
@@ -109,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/novel_state"
-            />
+                />
 
         </LinearLayout>
 
@@ -119,14 +119,14 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:text="@string/description"
-        />
+            />
 
         <TextView
             android:id="@+id/vText_fNovel_Description"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:text="@string/novel_description"
-        />
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -136,7 +136,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/chapter"
-        />
+            />
 
         <project.luxnovel.Helper.HelperNonScroll
             android:id="@+id/vList_fNovel_Chapter"
@@ -144,7 +144,7 @@
             android:layout_height="250dp"
             android:layout_marginTop="10dp"
             android:nestedScrollingEnabled="true"
-        />
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -154,7 +154,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="@string/comment"
-        />
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -162,7 +162,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:orientation="horizontal"
-        >
+            >
 
             <TextView
                 android:layout_width="85dp"
@@ -170,7 +170,7 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:text="@string/rating"
-            />
+                />
 
             <TextView
                 android:id="@+id/vText_fNovel_Rating"
@@ -178,7 +178,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/novel_rating"
-            />
+                />
 
         </LinearLayout>
 
@@ -187,7 +187,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-        >
+            >
 
             <TextView
                 android:layout_width="85dp"
@@ -195,7 +195,7 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:text="@string/comment"
-            />
+                />
 
             <EditText
                 android:id="@+id/uText_fNovel_Comment"
@@ -207,7 +207,7 @@
                 android:hint="@string/comment"
                 android:inputType="text"
                 tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck,VisualLintTextFieldSize"
-            />
+                />
 
         </LinearLayout>
 
@@ -215,7 +215,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-        >
+            >
 
             <TextView
                 android:layout_width="85dp"
@@ -223,7 +223,7 @@
                 android:gravity="center_vertical"
                 android:textStyle="bold"
                 android:text="@string/rating"
-            />
+                />
 
             <RatingBar
                 android:id="@+id/uRating_fNovel_Rating"
@@ -237,8 +237,8 @@
                 android:rating="0"
                 android:secondaryProgressTint="@color/black"
                 android:stepSize="1"
-                style="?android:attr/ratingBarStyleIndicator"
-            />
+
+                />
 
         </LinearLayout>
 
@@ -251,7 +251,7 @@
             android:background="@drawable/border"
             tools:ignore="VisualLintButtonSize"
             android:text="@string/comment"
-        />
+            />
 
         <TextView
             android:id="@+id/uText_fNovel_Empty"
@@ -260,7 +260,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/comment_empty"
-        />
+            />
 
         <project.luxnovel.Helper.HelperNonScroll
             android:id="@+id/vList_fNovel_Comment"
@@ -268,7 +268,7 @@
             android:layout_height="250dp"
             android:layout_marginTop="10dp"
             android:nestedScrollingEnabled="true"
-        />
+            />
 
     </LinearLayout>
 
